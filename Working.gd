@@ -11,15 +11,22 @@ var gravity  : = 30.0
 var velocity : = Vector2(0,-1)
 # controls movement speed
 var speed : = 180.0
+var speed_add : = 0.0
 # jumping is negative and therefore
 var jumpforce : = -900.0
 
 func _physics_process(_delta: float) -> void:
+  
 #movement is a and d
   if Input.is_action_pressed("right_movement"):
-    velocity.x = speed
-  if Input.is_action_pressed("left_movement"):
-    velocity.x = -speed
+    velocity.x = speed + speed_add
+  elif Input.is_action_pressed("left_movement"):
+    velocity.x = -speed - speed_add
+    
+  if Input.is_action_pressed("Sprint_action"):
+    speed_add = speed
+  else:
+    speed_add = 0
     
   velocity.y = velocity.y + gravity
   if Input.is_action_just_pressed("jump_movement") and is_on_floor():
