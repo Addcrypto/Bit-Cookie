@@ -7,4 +7,4 @@ func _on_quitButton_pressed():
 
 
 func _on_newGameButton_pressed():
-  get_tree().change_scene("res://world.tscn")
+  get_tree().change_scene("res://dummyImport.tscn")

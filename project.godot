@@ -10,7 +10,7 @@ config_version=4
 
 [application]
 
-run/main_scene="res://dummyImport.tscn"
+run/main_scene="res://mainMenu.tscn"
 config/icon="res://icon.png"
 <<<<<<<Updatedupstreamrun/main_scene="res://dummyImport.tscn"
 
