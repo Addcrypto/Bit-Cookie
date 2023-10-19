@@ -29,6 +29,8 @@ func _physics_process(_delta: float) -> void:
   
   velocity.x = lerp(velocity.x,0,0.3)
   
+func gotoStart() -> void :
+    position = Vector2(0, 0)
 #  look_at(get_global_mouse_position())
   
 #func _unhandled_input(event: InputEvent) -> void:
