@@ -18,7 +18,8 @@ func _physics_process(delta):
   var mouse_pos = get_global_mouse_position()
   look_at(mouse_pos)
   
-  if Input.is_action_just_pressed("shoot_action")and can_fire:
+  if Input.is_action_pressed("shoot_action")and can_fire:
+    
     call(state)
 
 func shoot():
@@ -26,6 +27,6 @@ func shoot():
   projectile_instance.rotation = rotation + rand_range(-0.1, 0.1)
   projectile_instance.global_position = end_of_gun.global_position
   get_parent().add_child(projectile_instance)
-  #can_fire = false
-  #yield(get_tree().create_timer(0.01), "tin=m")
+  can_fire = false
+  yield(get_tree().create_timer(0.5), "timeout")
   can_fire = true

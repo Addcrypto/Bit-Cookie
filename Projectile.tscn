@@ -4,7 +4,7 @@
 [ext_resource path="res://Projectile.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 3, 3 )
+extents = Vector2( 18, 16 )
 
 [node name="Projectile" type="Area2D"]
 script = ExtResource( 2 )
@@ -13,9 +13,11 @@ script = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.09375, 0.09375 )
+position = Vector2( -1.19209e-07, 0 )
+scale = Vector2( 1.125, 0.5 )
 texture = ExtResource( 1 )
 hframes = 2
 frame = 1
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+scale = Vector2( 2.5, 2.2 )
