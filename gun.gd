@@ -1,6 +1,7 @@
 extends Sprite
 var projectile = preload("res://Projectile.tscn")
 var state = "shoot"
+var timing = .5
 
 onready var end_of_gun = $EndOfGun 
 
@@ -28,5 +29,5 @@ func shoot():
   projectile_instance.global_position = end_of_gun.global_position
   get_parent().add_child(projectile_instance)
   can_fire = false
-  yield(get_tree().create_timer(0.5), "timeout")
+  yield(get_tree().create_timer(timing), "timeout")
   can_fire = true

@@ -3,7 +3,8 @@ extends KinematicBody2D
 #export (PackedScene) var Projectile
 
 var Projectile = preload("res://Projectile.tscn")
-
+var power_up_signal=0
+var timer_duration = 1
 
 # gravity to keep the player down
 var gravity  : = 30.0
@@ -52,6 +53,20 @@ func gotoStart() -> void :
 #  var target = get_global_mouse_position()
 #  var direction_to_mouse = Projectile_instance.global_position.direction_to(target).normalized()
 #  Projectile_instance.set_direction(direction_to_mouse)
+
+
+
+func Powerup_jump():
+  if power_up_signal == 1:
+    var prevjump = jumpforce
+    jumpforce *= 1.5
+    yield(get_tree().create_timer(timer_duration), "timeout")
+    jumpforce = prevjump
   
   
-  
+func Powerup_gun():
+  var prev_time = $gun.timing
+  if power_up_signal == 0:
+    $gun.timing = .01
+    yield(get_tree().create_timer(timer_duration), "timeout")
+    $gun.timing = prev_time
