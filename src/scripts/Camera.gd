@@ -6,7 +6,7 @@ extends Camera2D
 # TODO: Investigate better method of doing above
 
 # TODO: This is nasty garbage
-onready var tile_map = get_tree().get_root().get_node("Root").get_node("TileMap")
+onready var tile_map = get_tree().get_root().get_node("Root").get_node("Navigation2D").get_node("TileMap")
 
 # Set the boundaries of the camera to the edges of the tilemap, so it can't
 # scroll beyond the level
