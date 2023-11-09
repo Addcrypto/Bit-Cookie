@@ -18,5 +18,5 @@ texture = ExtResource( 1 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
-[connection signal="body_entered" from="." to="." method="_on_Powerup_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_Powerup_gun_body_entered"]
 [connection signal="child_entered_tree" from="CollisionShape2D" to="." method="_on_CollisionShape2D_child_entered_tree"]

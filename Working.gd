@@ -4,10 +4,13 @@ extends KinematicBody2D
 
 var Projectile = preload("res://Projectile.tscn")
 var power_up_signal=0
-var timer_duration = 1
+var death_signal=0
+var timer_duration = 3
 
 # gravity to keep the player down
 var gravity  : = 30.0
+# chances to prevent the player from dying
+var health = 100;
 
 var velocity : = Vector2(0,-1)
 # controls movement speed
@@ -39,13 +42,20 @@ func _physics_process(_delta: float) -> void:
   
 func gotoStart() -> void :
     position = Vector2(0, 0)
-#  look_at(get_global_mouse_position())
-  
-#func _unhandled_input(event: InputEvent) -> void:
-#  if event.is_action_released("shoot_action"):
-#    shoot()
-    
-    
+
+func kill_block_touch():
+  if death_signal == 1:
+    health = 0
+    reset_on_kill()
+
+
+func reset_on_kill():
+  if(health <= 0):
+    print(health)
+    get_tree().reload_current_scene()
+
+
+
 #func shoot():
 #  var Projectile_instance = Projectile.instance()
 #  add_child(Projectile_instance)
@@ -66,7 +76,9 @@ func Powerup_jump():
   
 func Powerup_gun():
   var prev_time = $gun.timing
-  if power_up_signal == 0:
-    $gun.timing = .01
+  print(prev_time)
+  if power_up_signal == 2:
+    get_child(2).timing = .1
+    print(get_child(2).timing)
     yield(get_tree().create_timer(timer_duration), "timeout")
     $gun.timing = prev_time

@@ -15,8 +15,8 @@ func _ready():
 #func _process(delta):
 #  pass
 
-func _on_Powerup_body_entered(body):
-  print( "Player grabbed a powerup." )
+func _on_Powerup_gun_body_entered(body):
+  print( "Player grabbed a upgrade." )
   if("Working") in body.name:
     body.power_up_signal = 2;
     body.Powerup_gun()
