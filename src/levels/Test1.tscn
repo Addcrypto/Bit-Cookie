@@ -1,10 +1,11 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://src/scripts/Gun.gd" type="Script" id=1]
 [ext_resource path="res://src/prefabs/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/prefabs/Camera.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/prefabs/Gun.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/tilesets/DebugTileset.png" type="Texture" id=5]
+[ext_resource path="res://src/menus/PauseMenu.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=11]
 points = PoolVector2Array( 0, 0, 256, 0, 256, 256, 0, 256 )
@@ -203,6 +204,8 @@ tile_data = PoolIntArray( -3014622, 1, 65537, -3014621, 1, 65537, -3014620, 1, 6
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 669, -546 )
+
+[node name="PauseMenu" parent="Player" instance=ExtResource( 6 )]
 
 [node name="Camera" parent="Player" instance=ExtResource( 3 )]
 position = Vector2( 0, 0 )

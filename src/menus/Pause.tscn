@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/fonts/Planet-Joy.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://src/scripts/Pause.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 75
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0, 0, 0.470588 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0, 0, 0, 0.686275 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0, 0, 0, 0.392157 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Pause" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.341176, 0.203922, 0.419608, 0.588235 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 585.0
+margin_top = 290.0
+margin_right = 1335.0
+margin_bottom = 790.0
+rect_min_size = Vector2( 750, 500 )
+custom_constants/separation = 20
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 750.0
+margin_bottom = 98.0
+custom_fonts/font = SubResource( 1 )
+text = "Pause Menu"
+align = 1
+
+[node name="Control" type="Control" parent="CenterContainer/VBoxContainer"]
+margin_top = 118.0
+margin_right = 750.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 0, 10 )
+
+[node name="resumeGame" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 148.0
+margin_right = 750.0
+margin_bottom = 221.0
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+text = "Resume"
+
+[node name="quitGame" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 241.0
+margin_right = 750.0
+margin_bottom = 314.0
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+text = "Quit"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/resumeGame" to="." method="_on_resumeGame_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/quitGame" to="." method="_on_quitGame_pressed"]
