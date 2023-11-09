@@ -30,7 +30,7 @@ func _shoot():
     last_shot = OS.get_ticks_msec()
     _make_bullet()
 
-func _physics_process(dt):
+func _physics_process(_dt):
     var mouse_pos = get_global_mouse_position()
     var gun_pos = global_position
 

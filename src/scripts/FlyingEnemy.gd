@@ -49,9 +49,7 @@ func _shoot():
     last_shot = OS.get_ticks_msec()
     _make_bullet()
         
-func _physics_process(delta):
-    var Follow = false
-    
+func _physics_process(_delta):    
     #print(DArea.get_overlapping_bodies())
     #
     
@@ -63,3 +61,8 @@ func _physics_process(delta):
             motion = move_and_slide(motion)
         else:
             _shoot()
+
+
+func _on_Hurtbox_area_entered(_area):
+    queue_free()
+

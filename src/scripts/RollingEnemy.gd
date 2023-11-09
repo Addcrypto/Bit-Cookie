@@ -19,7 +19,7 @@ func _ready():
     $FloorChecker.position.x = $CollisionShape2D.shape.get_radius() * Direction
     $FloorChecker.enabled = Detects_Cliffs
 
-func _physics_process(delta):
+func _physics_process(_delta):
     if ((is_on_wall() or not $FloorChecker.is_colliding()) and Detects_Cliffs and is_on_floor()):
         Direction = Direction * -1
         $Sprite.flip_h = not $Sprite.flip_h
@@ -33,3 +33,14 @@ func _physics_process(delta):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #    pass
+
+
+func _on_Hurtbox_area_entered(_area):
+    queue_free()
+    pass # Replace with function body.
+
+
+func _on_Hurtbox_body_entered(_body):
+    pass
+    queue_free()
+    pass # Replace with function body.

@@ -11,7 +11,7 @@ func _input(event):
   
 
 func _on_quitGame_pressed():
-  get_tree().change_scene("res://src/menus/MainMenu.tscn")
+  var _temp = get_tree().change_scene("res://src/menus/MainMenu.tscn")
   get_tree().paused = false
 
 
