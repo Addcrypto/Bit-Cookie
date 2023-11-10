@@ -33,3 +33,11 @@ func _physics_process(delta):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #    pass
+
+#attempt to signal to lose health and kill player.
+func _on_RollingEnemy_child_entered_tree(body):
+  print( "Player touched enemy" )
+  if("Player") in body.name:
+    body.health_gone= 1;
+    body.check_on_player()
+    body.die()

@@ -101,12 +101,19 @@ func _physics_process(dt):
 func Powerup_jump():
   if power_up_signal == 1:
     var prevjump = jump_height
-    jump_height *= 1.5
-    yield(get_tree().create_timer(timer_duration), "timeout")
-    jump_height = prevjump
-    
+    jump_height *= 1.25
+    #yield(get_tree().create_timer(timer_duration), "timeout")
+    #jump_height = prevjump
+
+
+    # these 2 functions are for health and reseting the health (die condition)
 func die():
   if (health <= 0):
     print(health)
     get_tree().reload_current_scene()
-
+# (losing health)
+func check_on_player():
+  if (health_gone == 1):
+    health = health - 10 
+    health_gone = 0
+    print(health)
