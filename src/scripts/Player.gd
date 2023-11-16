@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 # Player health
-export var health = 100;
+#var health = PlayerVariables.Health;
 # Acceleration due to gravity
 export var gravity: float = 3000
 # Maximum horizontal walk speed
@@ -62,7 +62,7 @@ func _update_animation(input_vector):
 
 func _physics_process(dt):
     var input_vector = _get_input_vector()
-    var sprint = sprint_mult if Input.is_action_pressed("sprint") else 1
+    var sprint = sprint_mult if Input.is_action_pressed("sprint") else 1.0
 
     if input_vector.x != 0:
         velocity.x += input_vector.x * walk_accel * dt
@@ -88,19 +88,21 @@ func _physics_process(dt):
 
     if jump_requested && can_jump:
         # Coyote time should end immediately if we jump
+        PlayerVariables.Health = PlayerVariables.Health-1
         last_grounded = 0
         # Get force required to launch player to jump_height
         velocity.y = jump_height * 2 * -sqrt(gravity)
         last_jumped = OS.get_ticks_msec()
 
     velocity = move_and_slide(velocity, Vector2.UP)
-
+    if($Label):
+        $Label.set_text(str("", PlayerVariables.Health))
     _update_animation(input_vector)
 
 # if called (from powerup) it will increase jump height for (time_duration) and resets it
 func Powerup_jump():
   if power_up_signal == 1:
-    var prevjump = jump_height
+    var _prevjump = jump_height
     jump_height *= 1.25
     #yield(get_tree().create_timer(timer_duration), "timeout")
     #jump_height = prevjump
@@ -108,12 +110,12 @@ func Powerup_jump():
 
     # these 2 functions are for health and reseting the health (die condition)
 func die():
-  if (health <= 0):
-    print(health)
-    get_tree().reload_current_scene()
+  if (PlayerVariables.Health <= 0):
+    print(PlayerVariables.Health)
+    var _temp = get_tree().reload_current_scene()
 # (losing health)
 func check_on_player():
   if (health_gone == 1):
-    health = health - 10 
+    PlayerVariables.Health = PlayerVariables.Health - 10 
     health_gone = 0
-    print(health)
+    print(PlayerVariables.Health)

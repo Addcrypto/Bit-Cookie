@@ -8,9 +8,9 @@
 radius = 32.0
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 33.0606
+radius = 32.0156
 
-[node name="RollingEnemy" type="KinematicBody2D"]
+[node name="RollingEnemy" type="KinematicBody2D" groups=["Enemies"]]
 collision_layer = 4
 collision_mask = 15
 script = ExtResource( 2 )
@@ -26,15 +26,14 @@ shape = SubResource( 1 )
 [node name="FloorChecker" type="RayCast2D" parent="."]
 cast_to = Vector2( 0, 43 )
 
-[connection signal="child_entered_tree" from="." to="." method="_on_RollingEnemy_child_entered_tree"]
-
 [node name="Hurtbox" parent="." instance=ExtResource( 3 )]
-collision_layer = 32
-collision_mask = 10
+collision_layer = 4
+collision_mask = 8
 
-[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+[node name="Box" parent="Hurtbox" index="0"]
 shape = SubResource( 2 )
 
+[connection signal="child_entered_tree" from="." to="." method="_on_RollingEnemy_child_entered_tree"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_Hurtbox_body_entered"]
 
