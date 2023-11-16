@@ -34,6 +34,14 @@ func _physics_process(_delta):
 #func _process(delta):
 #    pass
 
+#attempt to signal to lose health and kill player.
+func _on_RollingEnemy_child_entered_tree(body):
+  print( "Player touched enemy" )
+  if("Player") in body.name:
+    body.health_gone= 1;
+    body.check_on_player()
+    body.die()
+
 
 func _on_Hurtbox_area_entered(_area):
     queue_free()

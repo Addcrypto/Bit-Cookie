@@ -1,6 +1,6 @@
 extends Node2D
 
-export var shoot_cooldown: float = .02
+export var shoot_cooldown: float = .2
 export var bullet_speed: float = 1400
 
 onready var sprite = $Sprite
@@ -34,7 +34,7 @@ func _physics_process(_dt):
     var mouse_pos = get_global_mouse_position()
     var gun_pos = global_position
 
-    if Input.is_action_just_pressed("shoot"):
+    if Input.is_action_pressed("shoot"):
         _shoot()
 
     look_at(mouse_pos)

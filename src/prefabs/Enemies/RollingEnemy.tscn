@@ -26,6 +26,8 @@ shape = SubResource( 1 )
 [node name="FloorChecker" type="RayCast2D" parent="."]
 cast_to = Vector2( 0, 43 )
 
+[connection signal="child_entered_tree" from="." to="." method="_on_RollingEnemy_child_entered_tree"]
+
 [node name="Hurtbox" parent="." instance=ExtResource( 3 )]
 collision_layer = 32
 collision_mask = 10

@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+# Player health
+export var health = 100;
 # Acceleration due to gravity
 export var gravity: float = 3000
 # Maximum horizontal walk speed
@@ -12,6 +14,14 @@ export var friction: float = 32
 export var jump_height: float = 13
 # How much faster we move while sprinting
 export var sprint_mult: float = 1.45
+
+# signal for damage and death and threaten to reset
+export var health_gone = 0
+
+# A reciver variable for power ups
+export var power_up_signal = 0
+# time that a power up should last
+export var timer_duration = 3
 
 # How aggressively jumps will be cut short when the player releases
 # the jump button
@@ -86,3 +96,24 @@ func _physics_process(dt):
     velocity = move_and_slide(velocity, Vector2.UP)
 
     _update_animation(input_vector)
+
+# if called (from powerup) it will increase jump height for (time_duration) and resets it
+func Powerup_jump():
+  if power_up_signal == 1:
+    var prevjump = jump_height
+    jump_height *= 1.25
+    #yield(get_tree().create_timer(timer_duration), "timeout")
+    #jump_height = prevjump
+
+
+    # these 2 functions are for health and reseting the health (die condition)
+func die():
+  if (health <= 0):
+    print(health)
+    get_tree().reload_current_scene()
+# (losing health)
+func check_on_player():
+  if (health_gone == 1):
+    health = health - 10 
+    health_gone = 0
+    print(health)
