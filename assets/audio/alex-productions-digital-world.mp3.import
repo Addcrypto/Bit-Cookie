@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/alex-productions-digital-world.mp3-5653646be0be7b548a4519edee3f6ea4.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/alex-productions-digital-world.mp3"
+dest_files=[ "res://.import/alex-productions-digital-world.mp3-5653646be0be7b548a4519edee3f6ea4.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

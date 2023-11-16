@@ -21,4 +21,11 @@ func _on_backButton_pressed():
 
 
 func _on_creditsButton_pressed():
+#<<<<<<< Updated upstream
     var _temp = get_tree().change_scene("res://src/menus/CreditsScene.tscn")
+#=======
+    #get_tree().change_scene("res://src/menus/CreditsScene.tscn")
+
+
+
+#>>>>>>> Stashed changes

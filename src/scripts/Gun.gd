@@ -5,6 +5,7 @@ export var bullet_speed: float = 1400
 
 onready var sprite = $Sprite
 onready var bullet_emitter = $BulletEmitter
+onready var gunshot = $GunShot
 
 const Bullet = preload("res://src/prefabs/Bullet.tscn")
 
@@ -35,7 +36,8 @@ func _physics_process(_dt):
     var gun_pos = global_position
 
     if Input.is_action_pressed("shoot"):
+        gunshot.play()
         _shoot()
-
+        
     look_at(mouse_pos)
     sprite.flip_v = true if mouse_pos.x < gun_pos.x else false
