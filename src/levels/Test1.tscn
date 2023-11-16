@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://src/scripts/Gun.gd" type="Script" id=1]
 [ext_resource path="res://src/prefabs/Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://src/prefabs/Enemies/FlyingEnemy.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/prefabs/Enemies/RollingEnemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/prefabs/Powerup.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/prefabs/Coin.tscn" type="PackedScene" id=10]
 
 [sub_resource type="NavigationPolygon" id=29]
 vertices = PoolVector2Array( 0, 0, 256, 0, 0, 256 )
@@ -269,4 +270,13 @@ position = Vector2( 2186, -549 )
 position = Vector2( 3184, -2029 )
 
 [node name="Powerup" parent="." instance=ExtResource( 9 )]
-position = Vector2( 998, -610 )
+position = Vector2( 5544, -2026 )
+
+[node name="Coin" parent="." instance=ExtResource( 10 )]
+position = Vector2( 975, -600 )
+
+[node name="Coin2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 2805, -736 )
+
+[node name="Coin3" parent="." instance=ExtResource( 10 )]
+position = Vector2( 2928, -2004 )

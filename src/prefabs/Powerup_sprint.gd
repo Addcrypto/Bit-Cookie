@@ -14,9 +14,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #  pass
-func _on_Powerup_body_entered(body):
-  print( "Player grabbed a powerup." )
+
+
+func _on_Powerup_sprint_body_entered(body):
+  print( "Player grabbed a  sprint powerup." )
   if("Player") in body.name:
-    body.power_up_signal = 1;
+    body.power_up_signal = 2;
     body.Powerup_jump()
     queue_free()
