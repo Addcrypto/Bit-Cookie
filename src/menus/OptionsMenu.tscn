@@ -1,36 +1,20 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://src/scripts/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://src/scripts/OptionsMenu.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/Planet-Joy.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/audio/GunShot.tscn" type="PackedScene" id=3]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=7]
 size = 100
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=8]
 size = 50
 font_data = ExtResource( 2 )
 
-[sub_resource type="StyleBoxFlat" id=7]
-bg_color = Color( 0, 0, 0, 0.470588 )
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id=8]
-bg_color = Color( 0, 0, 0, 0.686275 )
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id=9]
-bg_color = Color( 0, 0, 0, 0.392157 )
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+[sub_resource type="DynamicFont" id=9]
+size = 50
+font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 50
@@ -65,86 +49,143 @@ margin_right = 1920.0
 margin_bottom = 1080.0
 color = Color( 0.482353, 0.34902, 0.529412, 1 )
 
-[node name="MarginContainer_mainMenu" type="MarginContainer" parent="."]
-margin_right = 1920.0
-margin_bottom = 1080.0
-custom_constants/margin_right = 200
-custom_constants/margin_top = 50
-custom_constants/margin_left = 200
-custom_constants/margin_bottom = 100
-
-[node name="VBoxContainer_title" type="VBoxContainer" parent="MarginContainer_mainMenu"]
-margin_left = 200.0
-margin_top = 50.0
-margin_right = 1720.0
-margin_bottom = 980.0
-__meta__ = {
-"_editor_description_": ""
-}
-
-[node name="Title" type="Label" parent="MarginContainer_mainMenu/VBoxContainer_title"]
-margin_top = 182.0
-margin_right = 1520.0
-margin_bottom = 280.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-custom_fonts/font = SubResource( 1 )
+[node name="Label" type="Label" parent="ColorRect"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -336.0
+margin_top = 144.0
+margin_right = 345.0
+margin_bottom = 242.0
+custom_fonts/font = SubResource( 7 )
 text = "Options Menu"
-align = 1
-valign = 1
 
-[node name="VBoxContainer_button" type="VBoxContainer" parent="MarginContainer_mainMenu/VBoxContainer_title"]
-margin_top = 467.0
-margin_right = 1520.0
-margin_bottom = 930.0
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -264.0
+margin_top = -124.0
+margin_right = 272.0
+margin_bottom = 31.0
+custom_constants/separation = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/HBoxContainer"]
+margin_right = 226.0
+margin_bottom = 155.0
+
+[node name="Master" type="Label" parent="ColorRect/HBoxContainer/VBoxContainer"]
+margin_right = 226.0
+margin_bottom = 49.0
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 8 )
+text = "Master"
+
+[node name="Music" type="Label" parent="ColorRect/HBoxContainer/VBoxContainer"]
+margin_top = 53.0
+margin_right = 226.0
+margin_bottom = 102.0
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 8 )
+text = "Music"
+
+[node name="Sound FX" type="Label" parent="ColorRect/HBoxContainer/VBoxContainer"]
+margin_top = 106.0
+margin_right = 226.0
+margin_bottom = 155.0
+custom_fonts/font = SubResource( 8 )
+text = "Sound FX"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect/HBoxContainer"]
+margin_left = 276.0
+margin_right = 536.0
+margin_bottom = 155.0
+size_flags_horizontal = 3
+
+[node name="Master" type="HSlider" parent="ColorRect/HBoxContainer/VBoxContainer2"]
+margin_right = 260.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 10, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/separation = 15
+min_value = -60.0
+max_value = 0.0
 
-[node name="MarginContainer_optionsButton" type="MarginContainer" parent="MarginContainer_mainMenu/VBoxContainer_title/VBoxContainer_button"]
-margin_right = 1520.0
-margin_bottom = 224.0
+[node name="Music" type="HSlider" parent="ColorRect/HBoxContainer/VBoxContainer2"]
+margin_top = 53.0
+margin_right = 260.0
+margin_bottom = 102.0
+rect_min_size = Vector2( 10, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/margin_right = 50
-custom_constants/margin_left = 50
+min_value = -60.0
+max_value = 0.0
 
-[node name="optionButton" type="Button" parent="MarginContainer_mainMenu/VBoxContainer_title/VBoxContainer_button/MarginContainer_optionsButton"]
-margin_left = 50.0
-margin_right = 1470.0
-margin_bottom = 224.0
-custom_fonts/font = SubResource( 6 )
-custom_styles/hover = SubResource( 7 )
-custom_styles/pressed = SubResource( 8 )
-custom_styles/normal = SubResource( 9 )
-text = "options"
-
-[node name="MarginContainer_backButton" type="MarginContainer" parent="MarginContainer_mainMenu/VBoxContainer_title/VBoxContainer_button"]
-margin_top = 239.0
-margin_right = 1520.0
-margin_bottom = 463.0
+[node name="Sound FX" type="HSlider" parent="ColorRect/HBoxContainer/VBoxContainer2"]
+margin_top = 106.0
+margin_right = 260.0
+margin_bottom = 155.0
+rect_min_size = Vector2( 10, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/margin_right = 50
-custom_constants/margin_left = 50
+min_value = -60.0
+max_value = 0.0
 
-[node name="backButton" type="Button" parent="MarginContainer_mainMenu/VBoxContainer_title/VBoxContainer_button/MarginContainer_backButton"]
-margin_left = 50.0
-margin_right = 1470.0
-margin_bottom = 224.0
+[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect"]
+margin_left = 696.0
+margin_top = 608.0
+margin_right = 1115.0
+margin_bottom = 657.0
+custom_constants/separation = 115
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/HBoxContainer2"]
+margin_right = 280.0
+margin_bottom = 49.0
+
+[node name="FullScreen" type="Label" parent="ColorRect/HBoxContainer2/VBoxContainer"]
+margin_right = 280.0
+margin_bottom = 49.0
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 9 )
+text = "Full Screen"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect/HBoxContainer2"]
+margin_left = 395.0
+margin_right = 471.0
+margin_bottom = 49.0
+
+[node name="FullScreenCheckBox" type="CheckBox" parent="ColorRect/HBoxContainer2/VBoxContainer2"]
+visible = false
+margin_right = 76.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="FullScreenCheckBox2" type="CheckButton" parent="ColorRect/HBoxContainer2/VBoxContainer2"]
+margin_right = 76.0
+margin_bottom = 40.0
+
+[node name="backButton" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 832.0
+margin_top = 856.0
+margin_right = 1088.0
+margin_bottom = 944.0
 custom_fonts/font = SubResource( 2 )
 custom_styles/hover = SubResource( 3 )
 custom_styles/pressed = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
-text = "back"
+text = "Back"
 
-[node name="quitButton" type="Button" parent="."]
-visible = false
-margin_left = 463.0
-margin_top = 311.0
-margin_right = 559.0
-margin_bottom = 351.0
-text = "Quit"
+[node name="GunShot" parent="." instance=ExtResource( 3 )]
 
-[connection signal="pressed" from="MarginContainer_mainMenu/VBoxContainer_title/VBoxContainer_button/MarginContainer_backButton/backButton" to="." method="_on_backButton_pressed"]
-[connection signal="pressed" from="quitButton" to="." method="_on_quitButton_pressed"]
+[connection signal="value_changed" from="ColorRect/HBoxContainer/VBoxContainer2/Master" to="." method="_on_Master_value_changed"]
+[connection signal="value_changed" from="ColorRect/HBoxContainer/VBoxContainer2/Music" to="." method="_on_Music_value_changed"]
+[connection signal="drag_ended" from="ColorRect/HBoxContainer/VBoxContainer2/Sound FX" to="." method="_on_Sound_FX_drag_ended"]
+[connection signal="value_changed" from="ColorRect/HBoxContainer/VBoxContainer2/Sound FX" to="." method="_on_Sound_FX_value_changed"]
+[connection signal="pressed" from="ColorRect/HBoxContainer2/VBoxContainer2/FullScreenCheckBox" to="." method="_on_FullScreenCheckBox_pressed"]
+[connection signal="pressed" from="ColorRect/HBoxContainer2/VBoxContainer2/FullScreenCheckBox2" to="." method="_on_FullScreenCheckBox2_pressed"]
+[connection signal="pressed" from="backButton" to="." method="_on_backButton_pressed"]
