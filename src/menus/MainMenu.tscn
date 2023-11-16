@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://src/scripts/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://src/scripts/Menus/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/Planet-Joy.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="DynamicFont" id=1]
@@ -160,16 +160,7 @@ custom_styles/pressed = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
 text = "Quit"
 
-[node name="quitButton" type="Button" parent="."]
-visible = false
-margin_left = 463.0
-margin_top = 311.0
-margin_right = 559.0
-margin_bottom = 351.0
-text = "Quit"
-
 [connection signal="pressed" from="MarginContainer_mainMenu/VBoxContainer_title/VBoxContainer_button/MarginContainer_playButton/newGameButton" to="." method="_on_newGameButton_pressed"]
 [connection signal="pressed" from="MarginContainer_mainMenu/VBoxContainer_title/VBoxContainer_button/MarginContainer_settingsButton/settingsButton" to="." method="_on_settingsButton_pressed"]
 [connection signal="pressed" from="MarginContainer_mainMenu/VBoxContainer_title/VBoxContainer_button/MarginContainer_creditButton/creditsButton" to="." method="_on_creditsButton_pressed"]
 [connection signal="pressed" from="MarginContainer_mainMenu/VBoxContainer_title/VBoxContainer_button/MarginContainer_quitButton/quitButton" to="." method="_on_quitButton_pressed"]
-[connection signal="pressed" from="quitButton" to="." method="_on_quitButton_pressed"]

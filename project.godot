@@ -19,6 +19,7 @@ config/icon="res://icon.png"
 
 Background="*res://assets/audio/Background.tscn"
 PlayerVariables="*res://src/scripts/PlayerVariables.gd"
+OptionVariables="*res://src/scripts/Menus/OptionVariables.gd"
 
 [display]
 
