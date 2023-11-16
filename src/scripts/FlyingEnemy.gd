@@ -3,6 +3,7 @@ extends KinematicBody2D
 export var speed = 100
 export var shoot_cooldown: float = .02
 export var bullet_speed: float = 1400
+export var bullet_damage: float = 20
 
 onready var bullet_emitter = $BulletEmitter
 const Bullet = preload("res://src/prefabs/Bullet.tscn")
@@ -38,7 +39,7 @@ func _make_bullet():
     var bullet_vel = Vector2.RIGHT.rotated(rotation) * bullet_speed
     
     new_bullet.global_position = bullet_emitter.global_position
-    new_bullet.set_owner(get_parent())
+    new_bullet.set_owner(self)
     new_bullet.apply_impulse(bullet_vel)
     
     main.add_child(new_bullet)        

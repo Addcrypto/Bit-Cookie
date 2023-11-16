@@ -88,7 +88,6 @@ func _physics_process(dt):
 
     if jump_requested && can_jump:
         # Coyote time should end immediately if we jump
-        PlayerVariables.Health = PlayerVariables.Health-1
         last_grounded = 0
         # Get force required to launch player to jump_height
         velocity.y = jump_height * 2 * -sqrt(gravity)
@@ -110,8 +109,7 @@ func Powerup_jump():
 
     # these 2 functions are for health and reseting the health (die condition)
 func die():
-  if (PlayerVariables.Health <= 0):
-    print(PlayerVariables.Health)
+    PlayerVariables.Reset()
     var _temp = get_tree().reload_current_scene()
 # (losing health)
 func check_on_player():
@@ -119,3 +117,20 @@ func check_on_player():
     PlayerVariables.Health = PlayerVariables.Health - 10 
     health_gone = 0
     print(PlayerVariables.Health)
+
+func DamageTaken(Dmg):
+    if(Dmg > 0):
+        PlayerVariables.Health = PlayerVariables.Health - Dmg
+        if(PlayerVariables.Health <= 0):
+            print("dead")
+            die()
+
+func _on_Hurtbox_area_entered(area):
+    var dmg = 0
+    if(area.is_in_group("Hitbox")):   
+        print("Hurtbox saw: "+str(area.Damage))
+        dmg = area.Damage
+    elif(area.bullet_owner.is_in_group("Enemies")):
+        print("Hurtbox shot by: "+str(area.bullet_owner.bullet_damage))
+        dmg = area.bullet_owner.bullet_damage
+    DamageTaken(dmg)

@@ -5,6 +5,7 @@ var velocity = Vector2()
 export var gravity: float = 3000
 # Maximum horizontal walk speed
 export var walk_speed: float = 500
+export var Health = 100
 export var Direction = 1
 export var Detects_Cliffs = true
 # Declare member variables here. Examples:
