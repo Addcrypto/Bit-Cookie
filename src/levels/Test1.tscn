@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://src/scripts/Gun.gd" type="Script" id=1]
 [ext_resource path="res://src/prefabs/Player.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://src/scripts/Levels/Test1.gd" type="Script" id=10]
 [ext_resource path="res://src/prefabs/Portal.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/prefabs/Coin.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/prefabs/Powerup_sprint.tscn" type="PackedScene" id=13]
 
 [sub_resource type="NavigationPolygon" id=29]
 vertices = PoolVector2Array( 0, 0, 256, 0, 0, 256 )
@@ -280,7 +281,7 @@ position = Vector2( 2186, -549 )
 position = Vector2( 3184, -2029 )
 
 [node name="Powerup" parent="." instance=ExtResource( 9 )]
-position = Vector2( 5526, -2102 )
+position = Vector2( 5261, -1948 )
 collision_mask = 2
 
 [node name="Portal" parent="." instance=ExtResource( 11 )]
@@ -295,5 +296,8 @@ position = Vector2( 869, -131 )
 
 [node name="Coin3" parent="Portal" instance=ExtResource( 12 )]
 position = Vector2( 3358, -1181 )
+
+[node name="Powerup_sprint" parent="." instance=ExtResource( 13 )]
+position = Vector2( 5730, -1999 )
 
 [connection signal="child_exiting_tree" from="." to="Portal" method="_on_Root_child_exiting_tree"]

@@ -15,7 +15,7 @@ export var jump_height: float = 13
 # How much faster we move while sprinting
 export var sprint_mult: float = 1.45
 
-export var coin_cnt = 0
+#export var coin_cnt = 0
 
 # signal for damage and death and threaten to reset
 export var health_gone = 0
@@ -102,16 +102,16 @@ func _physics_process(dt):
 
 # if called (from powerup) it will increase jump height for (time_duration) and resets it
 func Powerup_jump():
-  if power_up_signal == 1 && coin_cnt == 3:
+  if power_up_signal == 1 && PlayerVariables.Coins == 3:
     jump_height *= 1.5
-    coin_cnt -= 3
+    PlayerVariables.Coins -= 3
     power_up_signal = 0
 
 
 func Powerup_sprint():
-  if power_up_signal == 1 && coin_cnt == 5:
+  if power_up_signal == 1 && PlayerVariables.Coins == 5:
     walk_speed *= 1.5
-    coin_cnt -= 5
+    PlayerVariables.Coins -= 5
     power_up_signal = 0
 
     # these 2 functions are for health and reseting the health (die condition)
