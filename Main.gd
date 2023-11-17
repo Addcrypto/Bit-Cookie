@@ -20,4 +20,4 @@ func _on_backButton_pressed():
 
 
 func _on_creditsButton_pressed():
-    get_tree().change_scene("res://creditsScene.tscn")
+    get_tree().change_scene("res://CreditScene.tscn")

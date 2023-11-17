@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/menus/BitCookie_credits.png" type="Texture" id=2]
+
+[node name="creditsBackground" type="ParallaxBackground"]
+scroll_limit_end = Vector2( 0, 2480 )
+
+[node name="creditsLayer" type="ParallaxLayer" parent="."]
+
+[node name="creditsPNG" type="Sprite" parent="creditsLayer"]
+position = Vector2( 960, 2008 )
+scale = Vector2( 1.13059, 1.13059 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="creditsLayer"]
+show_behind_parent = true
+margin_right = 1920.0
+margin_bottom = 768.0

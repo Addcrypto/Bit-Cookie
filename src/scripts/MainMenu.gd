@@ -1,7 +1,6 @@
 extends Node2D
 
 
-
 func _on_quitButton_pressed():
   get_tree().quit()
 
@@ -22,7 +21,7 @@ func _on_backButton_pressed():
 
 func _on_creditsButton_pressed():
 #<<<<<<< Updated upstream
-    var _temp = get_tree().change_scene("res://src/menus/CreditsScene.tscn")
+    var _temp = get_tree().change_scene("res://src/menus/creditsBackground.tscn")
 #=======
     #get_tree().change_scene("res://src/menus/CreditsScene.tscn")
 

@@ -23,7 +23,7 @@ func _on_backButton_pressed():
 
 func _on_creditsButton_pressed():
 #<<<<<<< Updated upstream
-    var _temp = get_tree().change_scene("res://src/menus/CreditsScene.tscn")
+    var _temp = get_tree().change_scene("res://src/menus/CreditScene.tscn")
 #=======
     #get_tree().change_scene("res://src/menus/CreditsScene.tscn")
 
