@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 # Player health
-export var health = 100;
+#var health = PlayerVariables.Health;
 # Acceleration due to gravity
 export var gravity: float = 3000
 # Maximum horizontal walk speed
@@ -64,7 +64,7 @@ func _update_animation(input_vector):
 
 func _physics_process(dt):
     var input_vector = _get_input_vector()
-    var sprint = sprint_mult if Input.is_action_pressed("sprint") else 1
+    var sprint = sprint_mult if Input.is_action_pressed("sprint") else 1.0
 
     if input_vector.x != 0:
         velocity.x += input_vector.x * walk_accel * dt
@@ -96,33 +96,48 @@ func _physics_process(dt):
         last_jumped = OS.get_ticks_msec()
 
     velocity = move_and_slide(velocity, Vector2.UP)
-
+    if($Label):
+        $Label.set_text(str("", PlayerVariables.Health))
     _update_animation(input_vector)
 
 # if called (from powerup) it will increase jump height for (time_duration) and resets it
 func Powerup_jump():
   if power_up_signal == 1 && coin_cnt == 3:
-    #var prevjump = jump_height
     jump_height *= 1.5
     coin_cnt -= 3
-    power_up_signal == 0
-    #print(jump_height)
-    #yield(get_tree().create_timer(timer_duration), "timeout")
-    #jump_height = prevjump
+    power_up_signal = 0
+
 
 func Powerup_sprint():
   if power_up_signal == 1 && coin_cnt == 5:
     walk_speed *= 1.5
     coin_cnt -= 5
+    power_up_signal = 0
 
     # these 2 functions are for health and reseting the health (die condition)
 func die():
-  if (health <= 0):
-    print(health)
-    get_tree().reload_current_scene()
+    PlayerVariables.Reset()
+    var _temp = get_tree().reload_current_scene()
 # (losing health)
 func check_on_player():
   if (health_gone == 1):
-    health = health - 10 
+    PlayerVariables.Health = PlayerVariables.Health - 10 
     health_gone = 0
-    print(health)
+    print(PlayerVariables.Health)
+
+func DamageTaken(Dmg):
+    if(Dmg > 0):
+        PlayerVariables.Health = PlayerVariables.Health - Dmg
+        if(PlayerVariables.Health <= 0):
+            print("dead")
+            die()
+
+func _on_Hurtbox_area_entered(area):
+    var dmg = 0
+    if(area.is_in_group("Hitbox")):   
+        print("Hurtbox saw: "+str(area.Damage))
+        dmg = area.Damage
+    elif(area.bullet_owner.is_in_group("Enemies")):
+        print("Hurtbox shot by: "+str(area.bullet_owner.bullet_damage))
+        dmg = area.bullet_owner.bullet_damage
+    DamageTaken(dmg)

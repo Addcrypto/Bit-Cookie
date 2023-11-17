@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://src/scripts/OptionsMenu.gd" type="Script" id=1]
+[ext_resource path="res://src/scripts/Menus/OptionsMenu.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/Planet-Joy.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/audio/GunShot.tscn" type="PackedScene" id=3]
 
@@ -181,7 +181,6 @@ custom_styles/normal = SubResource( 5 )
 text = "Back"
 
 [node name="GunShot" parent="." instance=ExtResource( 3 )]
-bus = "SFX"
 
 [connection signal="value_changed" from="ColorRect/HBoxContainer/VBoxContainer2/Master" to="." method="_on_Master_value_changed"]
 [connection signal="value_changed" from="ColorRect/HBoxContainer/VBoxContainer2/Music" to="." method="_on_Music_value_changed"]

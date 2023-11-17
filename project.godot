@@ -18,6 +18,8 @@ config/icon="res://icon.png"
 [autoload]
 
 Background="*res://assets/audio/Background.tscn"
+PlayerVariables="*res://src/scripts/PlayerVariables.gd"
+OptionVariables="*res://src/scripts/Menus/OptionVariables.gd"
 
 [display]
 
@@ -99,6 +101,8 @@ sprint={
 2d_physics/layer_3="Enemy"
 2d_physics/layer_4="Projectile"
 2d_physics/layer_5="Items"
+2d_physics/layer_6="HurtBox"
+2d_physics/layer_7="HitBox"
 
 [physics]
 
