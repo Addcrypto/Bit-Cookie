@@ -8,6 +8,8 @@ export var walk_speed: float = 500
 export var Health = 100
 export var Direction = 1
 export var Detects_Cliffs = true
+
+const Coin = preload("res://src/prefabs/Coin.tscn")
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -35,6 +37,14 @@ func _physics_process(_delta):
 #func _process(delta):
 #    pass
 
+func _make_coin():
+    var main = get_tree().current_scene
+    var new_coin = Coin.instance()
+    new_coin.global_position = self.global_position
+    
+#    main.add_child(new_coin)
+    main.call_deferred("add_child", new_coin)
+
 #attempt to signal to lose health and kill player.
 func _on_RollingEnemy_child_entered_tree(body):
 #  print(body)
@@ -55,4 +65,10 @@ func _on_Hurtbox_body_entered(body):
 #    print(body)
     if(body.name == "Player"):
         queue_free()
+    pass # Replace with function body.
+
+
+func _on_RollingEnemy_tree_exiting():
+    print("dead")
+    _make_coin()
     pass # Replace with function body.

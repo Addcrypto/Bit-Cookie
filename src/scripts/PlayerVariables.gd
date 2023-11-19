@@ -17,4 +17,4 @@ func _ready():
 
 func Reset():
     Health = 100
-    var Coins = 0
+    Coins = 0

@@ -102,14 +102,14 @@ func _physics_process(dt):
 
 # if called (from powerup) it will increase jump height for (time_duration) and resets it
 func Powerup_jump():
-  if power_up_signal == 1 && PlayerVariables.Coins == 3:
+  if power_up_signal == 1 && PlayerVariables.Coins >= 3:
     jump_height *= 1.5
     PlayerVariables.Coins -= 3
     power_up_signal = 0
 
 
 func Powerup_sprint():
-  if power_up_signal == 1 && PlayerVariables.Coins == 5:
+  if power_up_signal == 1 && PlayerVariables.Coins >= 5:
     walk_speed *= 1.5
     PlayerVariables.Coins -= 5
     power_up_signal = 0
@@ -137,7 +137,7 @@ func _on_Hurtbox_area_entered(area):
     if(area.is_in_group("Hitbox")):   
         print("Hurtbox saw: "+str(area.Damage))
         dmg = area.Damage
-    elif(area.bullet_owner.is_in_group("Enemies")):
-        print("Hurtbox shot by: "+str(area.bullet_owner.bullet_damage))
-        dmg = area.bullet_owner.bullet_damage
+    elif(area.group == "Enemies"):
+        print("Hurtbox shot by: "+str(area.Damage))
+        dmg = area.Damage
     DamageTaken(dmg)

@@ -2,6 +2,7 @@ extends Node2D
 
 export var shoot_cooldown: float = .2
 export var bullet_speed: float = 1400
+export var bullet_damage: float = 10
 
 onready var sprite = $Sprite
 onready var bullet_emitter = $BulletEmitter
@@ -22,6 +23,7 @@ func _make_bullet():
     new_bullet.global_position = bullet_emitter.global_position
     new_bullet.set_owner(get_parent())
     new_bullet.apply_impulse(bullet_vel)
+    new_bullet.Damage = bullet_damage
     
     main.add_child(new_bullet)
 
