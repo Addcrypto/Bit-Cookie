@@ -354,3 +354,6 @@ margin_bottom = -49.0
 
 [node name="health_pickup" parent="." instance=ExtResource( 8 )]
 position = Vector2( -268, 130 )
+
+[connection signal="CoinAmountChanged" from="Player" to="HUD" method="_on_Player_CoinAmountChanged"]
+[connection signal="HealthAmountChanged" from="Player" to="HUD" method="_on_Player_HealthAmountChanged"]

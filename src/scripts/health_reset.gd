@@ -16,7 +16,7 @@ func _ready():
 #  pass
 
 func _on_health_pickup_body_entered(body):
-  print( "Player grabbed a  sprint powerup." )
+  print( "Player grabbed a health powerup." )
   if("Player") in body.name && PlayerVariables.Coins  >= 4:
     body.power_up_signal = 3;
     body.health_pickup()
