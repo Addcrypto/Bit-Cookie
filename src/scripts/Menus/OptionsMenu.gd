@@ -9,6 +9,7 @@ onready var MasterValue = OptionVariables.MasterValue
 onready var MusicValue = OptionVariables.MusicValue
 onready var FXValue = OptionVariables.FXValue
 onready var FullValue = OptionVariables.Fullscreen
+onready var file = File.new()
 
 
 func _ready():
@@ -16,12 +17,17 @@ func _ready():
     MusicSlider.value = MusicValue
     FXSlider.value = FXValue
     FullCheck.pressed = FullValue
+    file.open("user://OptionData.txt", file.WRITE)
 
 func _on_FullScreenCheckBox_pressed():
     OS.window_fullscreen = !OS.window_fullscreen
     OptionVariables.Fullscreen = !OptionVariables.Fullscreen
 
 func _on_backButton_pressed():
+    var Settings = String(FullCheck.pressed)+","+String(OptionVariables.MasterValue)+","+String(OptionVariables.MusicValue)+","+String(OptionVariables.FXValue)
+    
+    file.store_string(Settings)
+    file.close()
     var _temp = get_tree().change_scene("res://src/menus/MainMenu.tscn")
 
 
