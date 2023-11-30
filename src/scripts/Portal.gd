@@ -30,6 +30,7 @@ func _on_Root_child_exiting_tree(node):
         if(get_tree().get_nodes_in_group("Enemies").size() <= 1):
             print("Empty")
             Open = true
+            $Sprite.modulate = Color(0, 255, 0, 255)
     pass # Replace with function body.
 
 

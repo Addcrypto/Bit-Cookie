@@ -17,6 +17,10 @@ func _ready():
     MusicSlider.value = MusicValue
     FXSlider.value = FXValue
     FullCheck.pressed = FullValue
+#    print(MasterSlider.value)
+#    print(MusicSlider.value)
+#    print(FXSlider.value)
+    
     file.open("user://OptionData.txt", file.WRITE)
 
 func _on_FullScreenCheckBox_pressed():

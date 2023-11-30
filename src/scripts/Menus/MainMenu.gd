@@ -13,14 +13,31 @@ func _ready():
             OptionVariables.MusicValue = float(temp[2])
             OptionVariables.FXValue = float(temp[3])
             
-            AudioServer.set_bus_volume_db(0, float(temp[1]))
-            AudioServer.set_bus_volume_db(1, float(temp[2]))
-            AudioServer.set_bus_volume_db(2, float(temp[3]))
+            _SetAudio(temp)
+#            AudioServer.set_bus_volume_db(0, float(temp[1]))
+#            AudioServer.set_bus_volume_db(1, float(temp[2]))
+#            AudioServer.set_bus_volume_db(2, float(temp[3]))
+#            print(temp[2])
         else:
             file.open("user://OptionData.txt", file.WRITE)
             file.store_string("false,0,0,0")
         file.close()
         OptionVariables.Opened = true
+
+func _SetAudio(values):
+#    print(AudioServer.get_bus_volume_db(0))
+#    print(AudioServer.get_bus_volume_db(1))
+#    print(AudioServer.get_bus_volume_db(2))
+#    print("------")
+    
+    AudioServer.set_bus_volume_db(0, float(values[1]))
+    AudioServer.set_bus_volume_db(1, float(values[2]))
+    AudioServer.set_bus_volume_db(2, float(values[3]))
+    
+#    print(AudioServer.get_bus_volume_db(0))
+#    print(AudioServer.get_bus_volume_db(1))
+#    print(AudioServer.get_bus_volume_db(2))
+#    print(AudioServer.bus_count)
 
 func _on_quitButton_pressed():
   get_tree().quit()
