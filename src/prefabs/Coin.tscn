@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 40.0
 
-[node name="Coin" type="Area2D"]
+[node name="Coin" type="Area2D" groups=["Money"]]
 collision_layer = 16
 collision_mask = 2
 script = ExtResource( 2 )

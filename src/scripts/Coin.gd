@@ -17,7 +17,7 @@ func _ready():
 
 func _on_Coin_body_entered(body):
   print( "Player grabbed a coin." )
-  if("Player") in body.name:
-    PlayerVariables.Coins += 1;
-    print(PlayerVariables.Coins )
+#  if("Player") in body.name:
+#    PlayerVariables.Coins += 1;
+#    print(PlayerVariables.Coins )
   queue_free()

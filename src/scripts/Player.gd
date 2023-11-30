@@ -33,6 +33,9 @@ export var jump_debounce: float = .2
 # How long, in seconds, are jumps still accepted after leaving the ground
 export var coyote_time: float = .15
 
+signal CoinAmountChanged
+signal HealthAmountChanged
+
 # Timestamp of when we last jumped
 var last_jumped: float = 0
 # Timestamp of when we were last grounded
@@ -105,13 +108,17 @@ func Powerup_jump():
   if power_up_signal == 1 && PlayerVariables.Coins >= 3:
     jump_height *= 1.5
     PlayerVariables.Coins -= 3
+    emit_signal("CoinAmountChanged")
     power_up_signal = 0
 
 
 func Powerup_sprint():
-  if power_up_signal == 1 && PlayerVariables.Coins >= 5:
+  print(power_up_signal)
+  if power_up_signal == 2 && PlayerVariables.Coins >= 5:
+    print("Gained Speed")
     walk_speed *= 1.5
     PlayerVariables.Coins -= 5
+    emit_signal("CoinAmountChanged")
     power_up_signal = 0
 
     # these 2 functions are for health and reseting the health (die condition)
@@ -128,13 +135,20 @@ func check_on_player():
 func DamageTaken(Dmg):
     if(Dmg > 0):
         PlayerVariables.Health = PlayerVariables.Health - Dmg
+        emit_signal("HealthAmountChanged")
         if(PlayerVariables.Health <= 0):
             print("dead")
             die()
 
 func _on_Hurtbox_area_entered(area):
     var dmg = 0
-    if(area.is_in_group("Hitbox")):   
+    if(area.is_in_group("Item")):
+        return
+    if(area.is_in_group("Money")):
+        PlayerVariables.Coins += 1
+        emit_signal("CoinAmountChanged")
+        print(PlayerVariables.Coins)
+    elif(area.is_in_group("Hitbox")):   
         print("Hurtbox saw: "+str(area.Damage))
         dmg = area.Damage
     elif(area.group == "Enemies"):
