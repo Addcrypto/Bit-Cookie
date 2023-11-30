@@ -17,6 +17,8 @@ var Player = null
 var DArea = null
 var InRange = null
 
+onready var sprite = $Sprite
+
 func _ready():
     if get_tree().has_group("Nav"):
         NavigationNode = get_tree().get_nodes_in_group("Nav")[0]
