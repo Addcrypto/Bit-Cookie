@@ -31,6 +31,7 @@ func _shoot():
     if OS.get_ticks_msec() - last_shot < shoot_cooldown*1000:
         return
     last_shot = OS.get_ticks_msec()
+    gunshot.play()
     _make_bullet()
 
 func _physics_process(_dt):
@@ -38,7 +39,6 @@ func _physics_process(_dt):
     var gun_pos = global_position
 
     if Input.is_action_pressed("shoot"):
-        gunshot.play()
         _shoot()
         
     look_at(mouse_pos)
