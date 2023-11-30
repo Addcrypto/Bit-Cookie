@@ -54,12 +54,18 @@ func _get_input_vector():
     return input_vector
     
 func _update_animation(input_vector):
-    #if !is_on_floor():
-        #animated_sprite.play("jump")
-    #elif input_vector.x != 0:
-        #animated_sprite.play("run")
-    #else:
-        #animated_sprite.play("idle")
+    if !is_on_floor():
+        if velocity.y < 0:
+            sprite.play("jump")
+        else:
+            sprite.play("fall")
+    elif velocity.length() > .5:
+        if sign(velocity.x) == sign(input_vector.x):
+            sprite.play("run")
+        else:
+            sprite.play("slide")
+    else:
+        sprite.play("idle")
     
     # Player sprite faces current move direction
     if input_vector.x != 0:
