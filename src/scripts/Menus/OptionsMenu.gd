@@ -29,7 +29,6 @@ func _on_FullScreenCheckBox_pressed():
 
 func _on_backButton_pressed():
     var Settings = String(FullCheck.pressed)+","+String(OptionVariables.MasterValue)+","+String(OptionVariables.MusicValue)+","+String(OptionVariables.FXValue)
-    
     file.store_string(Settings)
     file.close()
     var _temp = get_tree().change_scene("res://src/menus/MainMenu.tscn")

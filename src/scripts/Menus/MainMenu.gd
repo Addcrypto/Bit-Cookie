@@ -14,10 +14,6 @@ func _ready():
             OptionVariables.FXValue = float(temp[3])
             
             _SetAudio(temp)
-#            AudioServer.set_bus_volume_db(0, float(temp[1]))
-#            AudioServer.set_bus_volume_db(1, float(temp[2]))
-#            AudioServer.set_bus_volume_db(2, float(temp[3]))
-#            print(temp[2])
         else:
             file.open("user://OptionData.txt", file.WRITE)
             file.store_string("false,0,0,0")
@@ -25,38 +21,23 @@ func _ready():
         OptionVariables.Opened = true
 
 func _SetAudio(values):
-#    print(AudioServer.get_bus_volume_db(0))
-#    print(AudioServer.get_bus_volume_db(1))
-#    print(AudioServer.get_bus_volume_db(2))
-#    print("------")
-    
     AudioServer.set_bus_volume_db(0, float(values[1]))
-    AudioServer.set_bus_volume_db(1, float(values[2]))
-    AudioServer.set_bus_volume_db(2, float(values[3]))
-    
-#    print(AudioServer.get_bus_volume_db(0))
-#    print(AudioServer.get_bus_volume_db(1))
-#    print(AudioServer.get_bus_volume_db(2))
-#    print(AudioServer.bus_count)
+    AudioServer.set_bus_volume_db(1, float(values[3]))
+    AudioServer.set_bus_volume_db(2, float(values[2]))
 
 func _on_quitButton_pressed():
   get_tree().quit()
-
 
 # TODO: More elegant logic for selecting level 1 maybe?
 func _on_newGameButton_pressed():
     PlayerVariables.Reset()
     var _temp = get_tree().change_scene("res://src/levels/Test1.tscn")
 
-
 func _on_settingsButton_pressed():
     var _temp = get_tree().change_scene("res://src/menus/OptionsMenu.tscn")
 
-
-
 func _on_backButton_pressed():
     var _temp = get_tree().change_scene("res://src/menus/MainMenu.tscn")
-
 
 func _on_creditsButton_pressed():
 #<<<<<<< Updated upstream
