@@ -15,10 +15,9 @@ func _ready():
 #func _process(delta):
 #  pass
 
-
-func _on_Powerup_sprint_body_entered(body):
+func _on_health_pickup_body_entered(body):
   print( "Player grabbed a  sprint powerup." )
-  if("Player") in body.name && PlayerVariables.Coins  >= 2:
-    body.power_up_signal = 2;
-    body.Powerup_sprint()
+  if("Player") in body.name && PlayerVariables.Coins  >= 4:
+    body.power_up_signal = 3;
+    body.health_pickup()
     queue_free()

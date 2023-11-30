@@ -111,21 +111,33 @@ func _physics_process(dt):
 
 # if called (from powerup) it will increase jump height for (time_duration) and resets it
 func Powerup_jump():
-  if power_up_signal == 1 && PlayerVariables.Coins >= 3:
+  if power_up_signal == 1 && PlayerVariables.Coins >= 1:
     jump_height *= 1.5
-    PlayerVariables.Coins -= 3
+    PlayerVariables.Coins -= 1
     emit_signal("CoinAmountChanged")
     power_up_signal = 0
 
 
 func Powerup_sprint():
   print(power_up_signal)
-  if power_up_signal == 2 && PlayerVariables.Coins >= 5:
+  if power_up_signal == 2 && PlayerVariables.Coins >= 2:
     print("Gained Speed")
     walk_speed *= 1.5
-    PlayerVariables.Coins -= 5
+    PlayerVariables.speed *= 1.5
+    PlayerVariables.Coins -= 2
     emit_signal("CoinAmountChanged")
     power_up_signal = 0
+
+func health_pickup():
+  print(power_up_signal)
+  if power_up_signal == 3 && PlayerVariables.Coins >= 4:
+    print("health gained")
+    PlayerVariables.Health = 100
+    PlayerVariables.Coins -= 4
+    emit_signal("HealthAmountChanged")
+    emit_signal("CoinAmountChanged")
+    power_up_signal = 0
+
 
     # these 2 functions are for health and reseting the health (die condition)
 func die():

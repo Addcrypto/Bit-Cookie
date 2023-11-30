@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://src/scripts/Gun.gd" type="Script" id=1]
 [ext_resource path="res://src/prefabs/Player.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://src/prefabs/Coin.tscn" type="PackedScene" id=12]
 [ext_resource path="res://src/prefabs/Powerup_sprint.tscn" type="PackedScene" id=13]
 [ext_resource path="res://src/prefabs/HUD.tscn" type="PackedScene" id=14]
+[ext_resource path="res://src/Parallax_level1.tscn" type="PackedScene" id=15]
 
 [sub_resource type="NavigationPolygon" id=29]
 vertices = PoolVector2Array( 0, 0, 256, 0, 0, 256 )
@@ -305,6 +306,8 @@ position = Vector2( 4682, -1793 )
 position = Vector2( 1070, -660 )
 
 [node name="HUD" parent="." instance=ExtResource( 14 )]
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 15 )]
 
 [connection signal="child_exiting_tree" from="." to="Portal" method="_on_Root_child_exiting_tree"]
 [connection signal="CoinAmountChanged" from="Player" to="HUD" method="_on_Player_CoinAmountChanged"]

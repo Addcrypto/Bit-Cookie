@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/prefabs/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/menus/PauseMenu.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://src/scripts/Gun.gd" type="Script" id=5]
 [ext_resource path="res://assets/tilesets/DebugTileset.png" type="Texture" id=6]
 [ext_resource path="res://src/prefabs/HUD.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/prefabs/health_reset.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, 0, 256, 0, 256, 256, 0, 256 )
@@ -350,3 +351,6 @@ margin_right = 20.0
 margin_bottom = -49.0
 
 [node name="HUD" parent="." instance=ExtResource( 7 )]
+
+[node name="health_pickup" parent="." instance=ExtResource( 8 )]
+position = Vector2( -268, 130 )

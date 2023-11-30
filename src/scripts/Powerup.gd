@@ -16,7 +16,7 @@ func _ready():
 #  pass
 func _on_Powerup_body_entered(body):
   print( "Player grabbed a powerup." )
-  if("Player") in body.name && PlayerVariables.Coins >= 3:
+  if("Player") in body.name && PlayerVariables.Coins >= 1:
     body.power_up_signal = 1;
     body.Powerup_jump()
     queue_free()
