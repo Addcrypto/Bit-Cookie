@@ -376,13 +376,13 @@ margin_bottom = -49.0
 [node name="HUD" parent="." instance=ExtResource( 7 )]
 
 [node name="health_pickup" parent="." instance=ExtResource( 8 )]
-position = Vector2( 583, 1966 )
+position = Vector2( 530, 1933 )
 
 [node name="Coin" parent="." instance=ExtResource( 9 )]
 position = Vector2( 25, 951 )
 
 [node name="FlyingEnemy" parent="." instance=ExtResource( 10 )]
-position = Vector2( 897, 1841 )
+position = Vector2( 983, 1806 )
 
 [node name="RollingEnemy" parent="." instance=ExtResource( 11 )]
 position = Vector2( 1560, 1433 )
