@@ -81,7 +81,7 @@ func _physics_process(dt):
         # Friction falloff
         velocity.x = lerp(0, velocity.x, pow(2, -friction*dt))
         
-    velocity.x = clamp(velocity.x, -walk_speed*sprint, walk_speed*sprint)
+    velocity.x = clamp(velocity.x, -PlayerVariables.speed*sprint, PlayerVariables.speed*sprint)
 
     if velocity.y < 0 && input_vector.y == 0:
         # Cut jump short if the player isn't holding the jump button
@@ -101,7 +101,7 @@ func _physics_process(dt):
         # Coyote time should end immediately if we jump
         last_grounded = 0
         # Get force required to launch player to jump_height
-        velocity.y = jump_height * 2 * -sqrt(gravity)
+        velocity.y = PlayerVariables.jump * 2 * -sqrt(gravity)
         last_jumped = OS.get_ticks_msec()
 
     velocity = move_and_slide(velocity, Vector2.UP)
@@ -113,6 +113,7 @@ func _physics_process(dt):
 func Powerup_jump():
   if power_up_signal == 1 && PlayerVariables.Coins >= 1:
     jump_height *= 1.5
+    PlayerVariables.jump *= 1.5
     PlayerVariables.Coins -= 1
     emit_signal("CoinAmountChanged")
     power_up_signal = 0
