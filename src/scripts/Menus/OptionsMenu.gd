@@ -42,16 +42,24 @@ func _on_FullScreenCheckBox2_pressed():
 func _on_Master_value_changed(value):
   AudioServer.set_bus_volume_db(0, value)
   OptionVariables.MasterValue = value
+  gunshot.play()
 
 
 func _on_Sound_FX_value_changed(value):
   AudioServer.set_bus_volume_db(1, value)
   OptionVariables.FXValue = value
+  gunshot.play()
 
 
 func _on_Music_value_changed(value):
   AudioServer.set_bus_volume_db(2, value)
   OptionVariables.MusicValue = value
+  gunshot.play()
 
 func _on_Sound_FX_drag_ended(_value_changed):
+  gunshot.play()
+
+
+
+func _on_Master_drag_ended(value_changed):
   gunshot.play()

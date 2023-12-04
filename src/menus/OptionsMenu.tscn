@@ -184,7 +184,6 @@ text = "Back"
 
 [connection signal="value_changed" from="ColorRect/HBoxContainer/VBoxContainer2/Master" to="." method="_on_Master_value_changed"]
 [connection signal="value_changed" from="ColorRect/HBoxContainer/VBoxContainer2/Music" to="." method="_on_Music_value_changed"]
-[connection signal="drag_ended" from="ColorRect/HBoxContainer/VBoxContainer2/Sound FX" to="." method="_on_Sound_FX_drag_ended"]
 [connection signal="value_changed" from="ColorRect/HBoxContainer/VBoxContainer2/Sound FX" to="." method="_on_Sound_FX_value_changed"]
 [connection signal="pressed" from="ColorRect/HBoxContainer2/VBoxContainer2/FullScreenCheckBox" to="." method="_on_FullScreenCheckBox_pressed"]
 [connection signal="pressed" from="ColorRect/HBoxContainer2/VBoxContainer2/FullScreenCheckBox2" to="." method="_on_FullScreenCheckBox2_pressed"]
