@@ -7,3 +7,4 @@ data = PoolByteArray( 255, 251, 208, 100, 0, 15, 240, 0, 0, 105, 0, 0, 0, 8, 0, 
 stream = SubResource( 1 )
 volume_db = 2.5
 pitch_scale = 1.6
+bus = "SFX"

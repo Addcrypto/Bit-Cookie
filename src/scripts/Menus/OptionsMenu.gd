@@ -52,7 +52,7 @@ func _on_Master_value_changed(value):
     buttonclick.play() 
   if value == -18:
     buttonclick.play()  
-  if value == -24:
+  if value == -30:
     AudioServer.set_bus_mute(0, true)
   else:
     AudioServer.set_bus_mute(0, false)
@@ -68,8 +68,7 @@ func _on_Sound_FX_value_changed(value):
     buttonclick.play() 
   if value == -18:
     buttonclick.play() 
-
-  if value == -24:
+  if value == -30:
     AudioServer.set_bus_mute(1, true)
   else:
     AudioServer.set_bus_mute(1, false)
@@ -85,7 +84,7 @@ func _on_Music_value_changed(value):
     buttonclick.play() 
   if value == -18:
     buttonclick.play()  
-  if value == -24:
+  if value == -30:
     AudioServer.set_bus_mute(2, true)
   else:
     AudioServer.set_bus_mute(2, false)
