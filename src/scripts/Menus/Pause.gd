@@ -1,5 +1,6 @@
 extends Control
 
+onready var buttonclick = $ButtonClick
 
 func _input(event):
   if event.is_action_pressed("pause"):
@@ -11,10 +12,12 @@ func _input(event):
 func _on_quitGame_pressed():
   var _temp = get_tree().change_scene("res://src/menus/MainMenu.tscn")
   get_tree().paused = false
+  buttonclick.play()
 
 
 func _on_resumeGame_pressed():
   var new_paused_state = not get_tree().paused
   visible = new_paused_state
   get_tree().paused = false
+  buttonclick.play()
   

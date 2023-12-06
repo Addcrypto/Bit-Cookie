@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/scripts/Menus/OptionsMenu.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/Planet-Joy.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/audio/GunShot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/audio/buttonClick.tscn" type="PackedScene" id=4]
 
 [sub_resource type="DynamicFont" id=7]
 size = 100
@@ -108,7 +109,7 @@ margin_bottom = 49.0
 rect_min_size = Vector2( 10, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-min_value = -60.0
+min_value = -24.0
 max_value = 0.0
 
 [node name="Music" type="HSlider" parent="ColorRect/HBoxContainer/VBoxContainer2"]
@@ -118,7 +119,7 @@ margin_bottom = 102.0
 rect_min_size = Vector2( 10, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-min_value = -60.0
+min_value = -24.0
 max_value = 0.0
 
 [node name="Sound FX" type="HSlider" parent="ColorRect/HBoxContainer/VBoxContainer2"]
@@ -128,7 +129,7 @@ margin_bottom = 155.0
 rect_min_size = Vector2( 10, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-min_value = -60.0
+min_value = -24.0
 max_value = 0.0
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect"]
@@ -181,6 +182,8 @@ custom_styles/normal = SubResource( 5 )
 text = "Back"
 
 [node name="GunShot" parent="." instance=ExtResource( 3 )]
+
+[node name="ButtonClick" parent="." instance=ExtResource( 4 )]
 
 [connection signal="value_changed" from="ColorRect/HBoxContainer/VBoxContainer2/Master" to="." method="_on_Master_value_changed"]
 [connection signal="value_changed" from="ColorRect/HBoxContainer/VBoxContainer2/Music" to="." method="_on_Music_value_changed"]

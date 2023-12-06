@@ -1,6 +1,7 @@
 extends Node2D
 
 onready var gunshot = $GunShot
+onready var buttonclick = $ButtonClick
 onready var MasterSlider = $ColorRect/HBoxContainer/VBoxContainer2/Master
 onready var MusicSlider = $ColorRect/HBoxContainer/VBoxContainer2/Music
 onready var FXSlider = $"ColorRect/HBoxContainer/VBoxContainer2/Sound FX"
@@ -32,34 +33,61 @@ func _on_backButton_pressed():
     file.store_string(Settings)
     file.close()
     var _temp = get_tree().change_scene("res://src/menus/MainMenu.tscn")
-
+    #buttonclick.play() 
+    #doesnt work for some reason
 
 func _on_FullScreenCheckBox2_pressed():
     OS.window_fullscreen = !OS.window_fullscreen
     OptionVariables.Fullscreen = !OptionVariables.Fullscreen
-
+    buttonclick.play() 
 
 func _on_Master_value_changed(value):
   AudioServer.set_bus_volume_db(0, value)
   OptionVariables.MasterValue = value
-  gunshot.play()
-
+  if value == 0:
+    buttonclick.play()  
+  if value == -6:
+    buttonclick.play()   
+  if value == -12:
+    buttonclick.play() 
+  if value == -18:
+    buttonclick.play()  
+  if value == -24:
+    AudioServer.set_bus_mute(0, true)
+  else:
+    AudioServer.set_bus_mute(0, false)
 
 func _on_Sound_FX_value_changed(value):
   AudioServer.set_bus_volume_db(1, value)
   OptionVariables.FXValue = value
-  gunshot.play()
+  if value == 0:
+    buttonclick.play() 
+  if value == -6:
+    buttonclick.play() 
+  if value == -12:
+    buttonclick.play() 
+  if value == -18:
+    buttonclick.play() 
 
+  if value == -24:
+    AudioServer.set_bus_mute(1, true)
+  else:
+    AudioServer.set_bus_mute(1, false)
 
 func _on_Music_value_changed(value):
   AudioServer.set_bus_volume_db(2, value)
   OptionVariables.MusicValue = value
-  gunshot.play()
+  if value == 0:
+    buttonclick.play()  
+  if value == -6:
+    buttonclick.play()   
+  if value == -12:
+    buttonclick.play() 
+  if value == -18:
+    buttonclick.play()  
+  if value == -24:
+    AudioServer.set_bus_mute(2, true)
+  else:
+    AudioServer.set_bus_mute(2, false)
+  
 
-func _on_Sound_FX_drag_ended(_value_changed):
-  gunshot.play()
-
-
-
-func _on_Master_drag_ended(value_changed):
-  gunshot.play()

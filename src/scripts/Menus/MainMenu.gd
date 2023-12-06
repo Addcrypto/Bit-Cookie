@@ -1,5 +1,7 @@
 extends Node2D
 
+onready var buttonclick = $ButtonClick
+
 func _ready():
     var file = File.new()
     if(not OptionVariables.Opened):
@@ -26,25 +28,22 @@ func _SetAudio(values):
     AudioServer.set_bus_volume_db(2, float(values[2]))
 
 func _on_quitButton_pressed():
-  get_tree().quit()
-
+    get_tree().quit()
+    buttonclick.play() 
 # TODO: More elegant logic for selecting level 1 maybe?
 func _on_newGameButton_pressed():
     PlayerVariables.Reset()
     var _temp = get_tree().change_scene("res://src/levels/Test3.tscn")
-
+    buttonclick.play() 
 func _on_settingsButton_pressed():
     var _temp = get_tree().change_scene("res://src/menus/OptionsMenu.tscn")
-
+    buttonclick.play() 
 func _on_backButton_pressed():
     var _temp = get_tree().change_scene("res://src/menus/MainMenu.tscn")
-
+    buttonclick.play() 
 func _on_creditsButton_pressed():
-#<<<<<<< Updated upstream
+    buttonclick.play()  
     var _temp = get_tree().change_scene("res://src/menus/CreditScene.tscn")
-#=======
-    #get_tree().change_scene("res://src/menus/CreditsScene.tscn")
+    buttonclick.play() 
 
 
-
-#>>>>>>> Stashed changes

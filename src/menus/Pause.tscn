@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/fonts/Planet-Joy.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/scripts/Menus/Pause.gd" type="Script" id=2]
+[ext_resource path="res://assets/audio/buttonClick.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -85,6 +86,8 @@ custom_styles/hover = SubResource( 3 )
 custom_styles/pressed = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
 text = "Main Menu"
+
+[node name="ButtonClick" parent="." instance=ExtResource( 3 )]
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/resumeGame" to="." method="_on_resumeGame_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/mainMenuGame" to="." method="_on_quitGame_pressed"]

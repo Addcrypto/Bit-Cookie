@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/scripts/Menus/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/Planet-Joy.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/audio/buttonClick.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -159,6 +160,8 @@ custom_styles/hover = SubResource( 3 )
 custom_styles/pressed = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
 text = "Quit"
+
+[node name="ButtonClick" parent="." instance=ExtResource( 3 )]
 
 [connection signal="pressed" from="MarginContainer_mainMenu/VBoxContainer_title/VBoxContainer_button/MarginContainer_playButton/newGameButton" to="." method="_on_newGameButton_pressed"]
 [connection signal="pressed" from="MarginContainer_mainMenu/VBoxContainer_title/VBoxContainer_button/MarginContainer_settingsButton/settingsButton" to="." method="_on_settingsButton_pressed"]
