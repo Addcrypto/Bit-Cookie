@@ -40,11 +40,7 @@ func _make_bullet():
     print("TRYING TO SHOOT YOU")
     var main = get_tree().current_scene
     var new_bullet = Bullet.instance()
-    var bullet_vel = Vector2.RIGHT.rotated(rotation) * bullet_speed
-#    if(Player.position.x > self.position.x):
-#        bullet_vel = Vector2.RIGHT.rotated(rotation) * bullet_speed
-#    else:
-#        bullet_vel = Vector2.LEFT.rotated(rotation) * bullet_speed
+    var bullet_vel = Vector2.RIGHT.rotated(sprite.rotation) * bullet_speed
     
     new_bullet.global_position = bullet_emitter.global_position
     new_bullet.Damage = bullet_damage
