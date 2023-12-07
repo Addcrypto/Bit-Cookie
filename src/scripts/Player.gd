@@ -47,6 +47,7 @@ var last_grounded: float = 0
 var velocity: Vector2 = Vector2.ZERO
 
 onready var sprite = $Sprite
+onready var jump = $Jump
 
 func _get_input_vector():
     var input_vector = Vector2.ZERO
@@ -106,6 +107,7 @@ func _physics_process(dt):
         # Get force required to launch player to jump_height
         velocity.y = PlayerVariables.jump * 2 * -sqrt(gravity)
         last_jumped = OS.get_ticks_msec()
+        jump.play()
 
     velocity = move_and_slide(velocity, Vector2.UP)
     # if($Label):
