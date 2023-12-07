@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://src/scripts/Gun.gd" type="Script" id=1]
 [ext_resource path="res://src/prefabs/Player.tscn" type="PackedScene" id=2]
@@ -17,6 +17,11 @@
 [ext_resource path="res://assets/background/SkyDusk.png" type="Texture" id=15]
 [ext_resource path="res://assets/background/TutorialSign.png" type="Texture" id=16]
 [ext_resource path="res://assets/fonts/Planet-Joy.ttf" type="DynamicFontData" id=17]
+[ext_resource path="res://assets/background/BackgroundFarMountains.png" type="Texture" id=18]
+[ext_resource path="res://assets/background/BackgroundMountains.png" type="Texture" id=19]
+[ext_resource path="res://assets/background/BackgroundGround.png" type="Texture" id=20]
+[ext_resource path="res://assets/background/Sky.png" type="Texture" id=21]
+[ext_resource path="res://assets/background/BackgroundMoons.png" type="Texture" id=22]
 
 [sub_resource type="NavigationPolygon" id=29]
 vertices = PoolVector2Array( 0, 0, 256, 0, 0, 256 )
@@ -380,6 +385,56 @@ position = Vector2( 4600, -872 )
 
 [node name="RollingEnemy5" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2072, -1576 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_base_scale = Vector2( 1, 0.2 )
+
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 0, -300 )
+motion_scale = Vector2( 1, 0 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Sky"]
+position = Vector2( 0, -1000 )
+texture = ExtResource( 21 )
+centered = false
+
+[node name="Moons" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 500, -500 )
+motion_scale = Vector2( 0, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Moons"]
+position = Vector2( 9, 0 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 22 )
+centered = false
+
+[node name="MountainsFar" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 0, -350 )
+motion_scale = Vector2( 0.1, 1 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/MountainsFar"]
+texture = ExtResource( 18 )
+centered = false
+
+[node name="Mountains" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 0, -80 )
+motion_scale = Vector2( 0.3, 1 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Mountains"]
+texture = ExtResource( 19 )
+centered = false
+
+[node name="Ground" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 0, 360 )
+motion_scale = Vector2( 0.65, 1 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Ground"]
+texture = ExtResource( 20 )
+centered = false
 
 [connection signal="child_exiting_tree" from="." to="Portal" method="_on_Root_child_exiting_tree"]
 [connection signal="CoinAmountChanged" from="Player" to="HUD" method="_on_Player_CoinAmountChanged"]
