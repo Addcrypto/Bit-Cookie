@@ -1,9 +1,13 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/scripts/Menus/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/Planet-Joy.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/audio/buttonClick.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/Logo.png" type="Texture" id=4]
+[ext_resource path="res://assets/background/BackgroundFarMountains.png" type="Texture" id=5]
+[ext_resource path="res://assets/background/BackgroundMountains.png" type="Texture" id=6]
+[ext_resource path="res://assets/background/BackgroundGround.png" type="Texture" id=7]
+[ext_resource path="res://assets/background/Sky.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=2]
 size = 50
@@ -32,11 +36,6 @@ corner_radius_bottom_left = 5
 
 [node name="mainMenu" type="Node2D"]
 script = ExtResource( 1 )
-
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 1920.0
-margin_bottom = 1080.0
-color = Color( 0.482353, 0.34902, 0.529412, 1 )
 
 [node name="MarginContainer_mainMenu" type="MarginContainer" parent="."]
 margin_right = 1912.0
@@ -159,6 +158,25 @@ custom_styles/normal = SubResource( 5 )
 text = "Quit"
 
 [node name="ButtonClick" parent="." instance=ExtResource( 3 )]
+
+[node name="BackgroundMountains" type="Sprite" parent="."]
+position = Vector2( 975, 648 )
+z_index = -3
+texture = ExtResource( 6 )
+
+[node name="BackgroundGround" type="Sprite" parent="BackgroundMountains"]
+position = Vector2( -27, 389 )
+texture = ExtResource( 7 )
+
+[node name="BackgroundFarMountains" type="Sprite" parent="BackgroundMountains/BackgroundGround"]
+position = Vector2( -2, -650 )
+z_index = -9
+texture = ExtResource( 5 )
+
+[node name="Sky" type="Sprite" parent="BackgroundMountains/BackgroundGround"]
+position = Vector2( 22, -68 )
+z_index = -10
+texture = ExtResource( 8 )
 
 [connection signal="pressed" from="MarginContainer_mainMenu/VBoxContainer_title/VBoxContainer_button/MarginContainer_playButton/newGameButton" to="." method="_on_newGameButton_pressed"]
 [connection signal="pressed" from="MarginContainer_mainMenu/VBoxContainer_title/VBoxContainer_button/MarginContainer_settingsButton/settingsButton" to="." method="_on_settingsButton_pressed"]
