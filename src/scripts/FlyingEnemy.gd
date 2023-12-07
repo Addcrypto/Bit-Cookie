@@ -5,7 +5,7 @@ export var shoot_cooldown: float = .02
 export var bullet_speed: float = 1400
 export var bullet_damage: float = 20
 
-onready var bullet_emitter = $BulletEmitter
+onready var bullet_emitter = $GunSprite/BulletEmitter
 const Bullet = preload("res://src/prefabs/Bullet.tscn")
 const Coin = preload("res://src/prefabs/Coin.tscn")
 
@@ -17,7 +17,7 @@ var Player = null
 var DArea = null
 var InRange = null
 
-onready var sprite = $Sprite
+onready var sprite = $GunSprite
 
 func _ready():
     if get_tree().has_group("Nav"):
@@ -34,7 +34,7 @@ func CreatePath():
 func goto():
     if path.size() > 0:
         motion = global_position.direction_to(path[1]) * speed
-        look_at(Player.position)
+        sprite.look_at(Player.position)
         
 func _make_bullet():
     var main = get_tree().current_scene

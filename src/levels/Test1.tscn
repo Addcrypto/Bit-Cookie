@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://src/scripts/Gun.gd" type="Script" id=1]
 [ext_resource path="res://src/prefabs/Player.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://assets/background/SkyDusk.png" type="Texture" id=15]
 [ext_resource path="res://assets/background/TutorialSign.png" type="Texture" id=16]
 [ext_resource path="res://assets/fonts/Planet-Joy.ttf" type="DynamicFontData" id=17]
+[ext_resource path="res://src/prefabs/Enemies/FlyingEnemy.tscn" type="PackedScene" id=18]
 
 [sub_resource type="NavigationPolygon" id=29]
 vertices = PoolVector2Array( 0, 0, 256, 0, 0, 256 )
@@ -399,6 +400,9 @@ position = Vector2( 6128, -1184 )
 
 [node name="RollingEnemy5" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2072, -1576 )
+
+[node name="FlyingEnemy" parent="." instance=ExtResource( 18 )]
+position = Vector2( 2054, -612 )
 
 [connection signal="child_exiting_tree" from="." to="Portal" method="_on_Root_child_exiting_tree"]
 [connection signal="CoinAmountChanged" from="Player" to="HUD" method="_on_Player_CoinAmountChanged"]
