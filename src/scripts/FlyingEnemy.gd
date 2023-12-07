@@ -18,6 +18,7 @@ var DArea = null
 var InRange = null
 
 onready var sprite = $GunSprite
+onready var gunshot = $Shoot
 
 func _ready():
     if get_tree().has_group("Nav"):
@@ -61,6 +62,7 @@ func _shoot():
     if OS.get_ticks_msec() - last_shot < shoot_cooldown*1000:
         return
     last_shot = OS.get_ticks_msec()
+    gunshot.play()
     _make_bullet()
         
 func _physics_process(_delta):    
