@@ -19,14 +19,14 @@ const Coin = preload("res://src/prefabs/Coin.tscn")
 func _ready():
     if Direction == -1:
         $Sprite.flip_h = true
-    $FloorChecker.position.x = $CollisionShape2D.shape.get_radius() * Direction
+    $FloorChecker.position = $CollisionShape2D.shape.get_extents() * Vector2(Direction, 1)
     $FloorChecker.enabled = Detects_Cliffs
 
 func _physics_process(_delta):
     if ((is_on_wall() or not $FloorChecker.is_colliding()) and Detects_Cliffs and is_on_floor()):
         Direction = Direction * -1
         $Sprite.flip_h = not $Sprite.flip_h
-        $FloorChecker.position.x = $CollisionShape2D.shape.get_radius() * Direction
+        $FloorChecker.position = $CollisionShape2D.shape.get_extents() * Vector2(Direction, 1)
     
     velocity.y += gravity
     velocity.x = walk_speed * Direction

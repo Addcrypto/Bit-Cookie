@@ -33,9 +33,6 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=5]
-radius = 64.1249
-
 [sub_resource type="CircleShape2D" id=2]
 radius = 415.666
 
@@ -43,10 +40,13 @@ radius = 415.666
 height = 290.0
 
 [sub_resource type="CircleShape2D" id=6]
-radius = 64.0312
+radius = 83.0
 
 [sub_resource type="CircleShape2D" id=7]
-radius = 64.0
+radius = 69.0
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 76.0066
 
 [node name="FlyingEnemy" type="KinematicBody2D" groups=["Enemies"]]
 collision_layer = 4
@@ -59,11 +59,7 @@ bullet_speed = 1000.0
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 10 )
 animation = "idle"
-frame = 1
 playing = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 5 )
 
 [node name="Vision" type="Area2D" parent="."]
 
@@ -82,17 +78,17 @@ position = Vector2( 105, 0 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 3 )]
 collision_layer = 4
-collision_mask = 8
 
 [node name="Box" parent="Hurtbox" index="0"]
 shape = SubResource( 6 )
 
 [node name="Hitbox" parent="." instance=ExtResource( 4 )]
-collision_layer = 64
-collision_mask = 2
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 shape = SubResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 5 )
 
 [connection signal="tree_exiting" from="." to="." method="_on_FlyingEnemy_tree_exiting"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]

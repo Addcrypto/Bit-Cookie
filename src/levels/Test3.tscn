@@ -402,3 +402,5 @@ texture = ExtResource( 11 )
 
 [connection signal="CoinAmountChanged" from="Player" to="HUD" method="_on_Player_CoinAmountChanged"]
 [connection signal="HealthAmountChanged" from="Player" to="HUD" method="_on_Player_HealthAmountChanged"]
+[connection signal="JumpGained" from="Player" to="HUD" method="_on_Player_JumpGained"]
+[connection signal="SpeedGained" from="Player" to="HUD" method="_on_Player_SpeedGained"]

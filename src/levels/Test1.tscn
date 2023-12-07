@@ -403,3 +403,4 @@ position = Vector2( 2072, -1576 )
 [connection signal="child_exiting_tree" from="." to="Portal" method="_on_Root_child_exiting_tree"]
 [connection signal="CoinAmountChanged" from="Player" to="HUD" method="_on_Player_CoinAmountChanged"]
 [connection signal="HealthAmountChanged" from="Player" to="HUD" method="_on_Player_HealthAmountChanged"]
+[connection signal="JumpGained" from="Player" to="HUD" method="_on_Player_JumpGained"]

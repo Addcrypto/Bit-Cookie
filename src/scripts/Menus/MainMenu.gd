@@ -33,7 +33,7 @@ func _on_quitButton_pressed():
 # TODO: More elegant logic for selecting level 1 maybe?
 func _on_newGameButton_pressed():
     PlayerVariables.Reset()
-    var _temp = get_tree().change_scene("res://src/levels/Test2.tscn")
+    var _temp = get_tree().change_scene("res://src/levels/Test1.tscn")
     buttonclick.play() 
 func _on_settingsButton_pressed():
     var _temp = get_tree().change_scene("res://src/menus/OptionsMenu.tscn")

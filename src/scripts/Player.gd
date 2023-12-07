@@ -35,6 +35,8 @@ export var coyote_time: float = .15
 
 signal CoinAmountChanged
 signal HealthAmountChanged
+signal JumpGained
+signal SpeedGained
 
 # Timestamp of when we last jumped
 var last_jumped: float = 0
@@ -115,7 +117,9 @@ func Powerup_jump():
     jump_height *= 1.5
     PlayerVariables.jump *= 1.5
     PlayerVariables.Coins -= 1
+    PlayerVariables.Spring += 1
     emit_signal("CoinAmountChanged")
+    emit_signal("JumpGained")
     power_up_signal = 0
 
 
@@ -126,7 +130,9 @@ func Powerup_sprint():
     walk_speed *= 1.5
     PlayerVariables.speed *= 1.5
     PlayerVariables.Coins -= 2
+    PlayerVariables.Can += 1
     emit_signal("CoinAmountChanged")
+    emit_signal("SpeedGained")
     power_up_signal = 0
 
 func health_pickup():
