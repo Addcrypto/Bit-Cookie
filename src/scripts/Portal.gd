@@ -11,6 +11,7 @@ export var LevelTo = "MainMenu.tscn"
 signal END
 
 onready var sprite = $Sprite
+onready var openSound = $OpenSound
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -35,6 +36,7 @@ func _on_Root_child_exiting_tree(node):
             Open = true
             # $Sprite.modulate = Color(0, 255, 0, 255)
             sprite.play("open")
+            openSound.play()
     pass # Replace with function body.
 
 

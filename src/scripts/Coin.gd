@@ -5,6 +5,7 @@ extends Area2D
 # var a = 2
 # var b = "text"
 
+onready var collect = $Collect
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,6 +18,7 @@ func _ready():
 
 func _on_Coin_body_entered(_body):
   print( "Player grabbed a coin." )
+  collect.play()
 #  if("Player") in body.name:
 #    PlayerVariables.Coins += 1;
 #    print(PlayerVariables.Coins )
