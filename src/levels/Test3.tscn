@@ -264,13 +264,6 @@ offset_v = 0.0
 position = Vector2( 0, 10 )
 script = ExtResource( 13 )
 
-[node name="Label" type="Label" parent="Player"]
-margin_left = -21.0
-margin_top = -66.0
-margin_right = 19.0
-margin_bottom = -52.0
-text = "0"
-
 [node name="FlyingEnemy" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2770, -1078 )
 
