@@ -1,21 +1,81 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://src/menus/BitCookie_credits.png" type="Texture" id=2]
+[ext_resource path="res://src/menus/TriGunCredits.png" type="Texture" id=1]
+[ext_resource path="res://src/menus/trigun_character.png" type="Texture" id=2]
+[ext_resource path="res://src/menus/roller.png" type="Texture" id=3]
 
 [node name="creditsBackground" type="ParallaxBackground"]
-scroll_limit_end = Vector2( 0, 2480 )
+scroll_limit_end = Vector2( 0, 4875 )
 
 [node name="creditsLayer" type="ParallaxLayer" parent="."]
 
 [node name="creditsPNG" type="Sprite" parent="creditsLayer"]
-position = Vector2( 960, 2008 )
-scale = Vector2( 1.13059, 1.13059 )
-texture = ExtResource( 2 )
+position = Vector2( 944, 2464 )
+scale = Vector2( 2.13808, 2.13322 )
+texture = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="ColorRect" type="ColorRect" parent="creditsLayer"]
 show_behind_parent = true
-margin_right = 1920.0
+margin_left = -160.0
+margin_right = 2040.0
 margin_bottom = 768.0
+
+[node name="Trigun_PNG" type="Sprite" parent="creditsLayer"]
+position = Vector2( 968, 4472 )
+texture = ExtResource( 2 )
+
+[node name="Trigun_PNG2" type="Sprite" parent="creditsLayer"]
+visible = false
+position = Vector2( 608, 744 )
+scale = Vector2( 0.478202, 0.478202 )
+texture = ExtResource( 2 )
+
+[node name="Roller" type="Sprite" parent="creditsLayer"]
+visible = false
+position = Vector2( 264, 3952 )
+rotation = 0.595157
+scale = Vector2( 0.500033, 0.500033 )
+texture = ExtResource( 3 )
+offset = Vector2( 50, 0 )
+
+[node name="Roller2" type="Sprite" parent="creditsLayer"]
+visible = false
+position = Vector2( 1672, 3256 )
+rotation = -0.268781
+scale = Vector2( 0.474904, 0.474904 )
+texture = ExtResource( 3 )
+offset = Vector2( 50, 0 )
+
+[node name="Roller3" type="Sprite" parent="creditsLayer"]
+visible = false
+position = Vector2( 1648, 1728 )
+rotation = 0.673697
+scale = Vector2( 0.470575, 0.470575 )
+texture = ExtResource( 3 )
+offset = Vector2( 50, 0 )
+
+[node name="Roller5" type="Sprite" parent="creditsLayer"]
+visible = false
+position = Vector2( 168, 2432 )
+rotation = -0.190241
+scale = Vector2( 0.470575, 0.470575 )
+texture = ExtResource( 3 )
+offset = Vector2( 50, 0 )
+
+[node name="Roller4" type="Sprite" parent="creditsLayer"]
+visible = false
+position = Vector2( 1376, 752 )
+scale = Vector2( 0.470575, 0.470575 )
+texture = ExtResource( 3 )
+offset = Vector2( 50, 0 )
+
+[node name="ColorRect2" type="ColorRect" parent="creditsLayer"]
+show_behind_parent = true
+light_mask = 2
+margin_left = -152.0
+margin_top = 4144.0
+margin_right = 2048.0
+margin_bottom = 4912.0
