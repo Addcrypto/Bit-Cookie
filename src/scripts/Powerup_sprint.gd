@@ -18,7 +18,7 @@ func _ready():
 
 func _on_Powerup_sprint_body_entered(body):
   print( "Player grabbed a  sprint powerup." )
-  if("Player") in body.name && PlayerVariables.Coins  >= 2:
+  if("Player") in body.name && PlayerVariables.Coins  >= 5:
     body.power_up_signal = 2;
     body.Powerup_sprint()
     queue_free()

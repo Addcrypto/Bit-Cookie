@@ -125,11 +125,11 @@ func Powerup_jump():
 
 func Powerup_sprint():
   print(power_up_signal)
-  if power_up_signal == 2 && PlayerVariables.Coins >= 2:
+  if power_up_signal == 2 && PlayerVariables.Coins >= 5:
     print("Gained Speed")
     walk_speed *= 1.5
     PlayerVariables.speed *= 1.5
-    PlayerVariables.Coins -= 2
+    PlayerVariables.Coins -= 5
     PlayerVariables.Can += 1
     emit_signal("CoinAmountChanged")
     emit_signal("SpeedGained")
