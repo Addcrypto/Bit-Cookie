@@ -108,8 +108,8 @@ func _physics_process(dt):
         last_jumped = OS.get_ticks_msec()
 
     velocity = move_and_slide(velocity, Vector2.UP)
-    if($Label):
-        $Label.set_text(str("", PlayerVariables.Health))
+    # if($Label):
+    #    $Label.set_text(str("", PlayerVariables.Health))
     _update_animation(input_vector)
 
 # if called (from powerup) it will increase jump height for (time_duration) and resets it
