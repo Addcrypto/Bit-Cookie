@@ -335,6 +335,7 @@ position = Vector2( 5736, -1983 )
 
 [connection signal="child_exiting_tree" from="." to="Portal" method="_on_Root_child_exiting_tree"]
 [connection signal="CoinAmountChanged" from="Player" to="HUD" method="_on_Player_CoinAmountChanged"]
+[connection signal="Died" from="Player" to="." method="_on_Player_Died"]
 [connection signal="HealthAmountChanged" from="Player" to="HUD" method="_on_Player_HealthAmountChanged"]
 [connection signal="JumpGained" from="Player" to="HUD" method="_on_Player_JumpGained"]
 [connection signal="SpeedGained" from="Player" to="HUD" method="_on_Player_SpeedGained"]
