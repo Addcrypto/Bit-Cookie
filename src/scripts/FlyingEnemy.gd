@@ -25,7 +25,7 @@ func _ready():
     if get_tree().has_group("Player"):
         Player = get_tree().get_nodes_in_group("Player")[0]
     DArea = get_node("Vision")
-    InRange = get_node("Range")
+    InRange = $GunSprite/Range
         
 func CreatePath():
     if NavigationNode != null and Player != null:
@@ -37,9 +37,14 @@ func goto():
         sprite.look_at(Player.position)
         
 func _make_bullet():
+    print("TRYING TO SHOOT YOU")
     var main = get_tree().current_scene
     var new_bullet = Bullet.instance()
     var bullet_vel = Vector2.RIGHT.rotated(rotation) * bullet_speed
+#    if(Player.position.x > self.position.x):
+#        bullet_vel = Vector2.RIGHT.rotated(rotation) * bullet_speed
+#    else:
+#        bullet_vel = Vector2.LEFT.rotated(rotation) * bullet_speed
     
     new_bullet.global_position = bullet_emitter.global_position
     new_bullet.Damage = bullet_damage
@@ -71,11 +76,19 @@ func _physics_process(_delta):
         goto()
             
         if !(Player in InRange.get_overlapping_bodies()):
+            print("Not in Range")
             motion = move_and_slide(motion)
         else:
+            print("HIIIIIIIII")
             _shoot()
 
-func _on_Hurtbox_area_entered(_area):
+func _on_Hurtbox_area_entered(area):
+    print("looook HERE:::")
+    if(area.name == "Bullet"):
+        if(area.bullet_owner.is_in_group("Enemies")):
+            return
+        print("O NOOOO")
+#    if(area)
     queue_free()
 
 
