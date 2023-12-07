@@ -10,6 +10,8 @@ var Changing = false
 export var LevelTo = "MainMenu.tscn"
 signal END
 
+onready var sprite = $Sprite
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
     pass # Replace with function body.
@@ -31,7 +33,8 @@ func _on_Root_child_exiting_tree(node):
         if(get_tree().get_nodes_in_group("Enemies").size() <= 1):
             print("Empty")
             Open = true
-            $Sprite.modulate = Color(0, 255, 0, 255)
+            # $Sprite.modulate = Color(0, 255, 0, 255)
+            sprite.play("open")
     pass # Replace with function body.
 
 
