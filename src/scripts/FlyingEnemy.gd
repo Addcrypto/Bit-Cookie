@@ -76,19 +76,15 @@ func _physics_process(_delta):
         goto()
             
         if !(Player in InRange.get_overlapping_bodies()):
-            print("Not in Range")
             motion = move_and_slide(motion)
         else:
-            print("HIIIIIIIII")
             _shoot()
 
 func _on_Hurtbox_area_entered(area):
-    print("looook HERE:::")
-    if(area.name == "Bullet"):
+    print(area)
+    if("Bullet" in area.name):
         if(area.bullet_owner.is_in_group("Enemies")):
             return
-        print("O NOOOO")
-#    if(area)
     queue_free()
 
 

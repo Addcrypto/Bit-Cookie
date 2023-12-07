@@ -313,7 +313,6 @@ collision_mask = 2
 
 [node name="Portal" parent="." instance=ExtResource( 15 )]
 position = Vector2( 1324, -612 )
-LevelTo = "Test3.tscn"
 
 [node name="Powerup_sprint" parent="." instance=ExtResource( 12 )]
 position = Vector2( 2440, -3824 )
@@ -343,3 +342,4 @@ position = Vector2( 5736, -1983 )
 [connection signal="HealthAmountChanged" from="Player" to="HUD" method="_on_Player_HealthAmountChanged"]
 [connection signal="JumpGained" from="Player" to="HUD" method="_on_Player_JumpGained"]
 [connection signal="SpeedGained" from="Player" to="HUD" method="_on_Player_SpeedGained"]
+[connection signal="END" from="Portal" to="." method="_on_Portal_END"]

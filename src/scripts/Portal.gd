@@ -8,6 +8,7 @@ extends Area2D
 var Open = false
 var Changing = false
 export var LevelTo = "MainMenu.tscn"
+signal END
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -36,6 +37,14 @@ func _on_Root_child_exiting_tree(node):
 
 func _on_Portal_body_entered(body):
     if(body.name == "Player" and Open):
-        var _temp = get_tree().change_scene("res://src/levels/"+LevelTo)
+        if(LevelTo != "MainMenu.tscn"):
+            var _temp = get_tree().change_scene("res://src/levels/"+LevelTo)
+        else:
+            emit_signal("END")
+#            var _temp = get_tree().change_scene("res://src/menus/CreditScene.tscn")    
+        
+    else:
+        pass
+#        var _temp = get_tree().change_scene("res://src/menus/CreditScene.tscn")
     pass # Replace with function body.
 

@@ -37,6 +37,7 @@ signal CoinAmountChanged
 signal HealthAmountChanged
 signal JumpGained
 signal SpeedGained
+signal Died
 
 # Timestamp of when we last jumped
 var last_jumped: float = 0
@@ -149,7 +150,9 @@ func health_pickup():
     # these 2 functions are for health and reseting the health (die condition)
 func die():
     PlayerVariables.Reset()
-    var _temp = get_tree().reload_current_scene()
+    emit_signal("Died")
+    queue_free()
+#    var _temp = get_tree().reload_current_scene()
 # (losing health)
 func check_on_player():
   if (health_gone == 1):
