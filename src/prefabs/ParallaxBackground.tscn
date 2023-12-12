@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/background/Sky.png" type="Texture" id=1]
+[ext_resource path="res://assets/background/BackgroundMountains.png" type="Texture" id=2]
+[ext_resource path="res://assets/background/BackgroundGround.png" type="Texture" id=3]
+[ext_resource path="res://assets/background/BackgroundFarMountains.png" type="Texture" id=4]
+[ext_resource path="res://assets/background/BackgroundMoons.png" type="Texture" id=5]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+scroll_base_scale = Vector2( 1, 0.2 )
+
+[node name="Sky" type="ParallaxLayer" parent="."]
+position = Vector2( 0, -300 )
+motion_scale = Vector2( 1, 0 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="Sprite" type="Sprite" parent="Sky"]
+position = Vector2( 0, -1000 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Moons" type="ParallaxLayer" parent="."]
+position = Vector2( 500, -500 )
+motion_scale = Vector2( 0, 0 )
+
+[node name="Sprite" type="Sprite" parent="Moons"]
+position = Vector2( 9, 0 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="MountainsFar" type="ParallaxLayer" parent="."]
+position = Vector2( 0, -350 )
+motion_scale = Vector2( 0.1, 1 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="Sprite" type="Sprite" parent="MountainsFar"]
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Mountains" type="ParallaxLayer" parent="."]
+position = Vector2( 0, -80 )
+motion_scale = Vector2( 0.3, 1 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="Sprite" type="Sprite" parent="Mountains"]
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Ground" type="ParallaxLayer" parent="."]
+position = Vector2( 0, 360 )
+motion_scale = Vector2( 0.65, 1 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="Sprite" type="Sprite" parent="Ground"]
+texture = ExtResource( 3 )
+centered = false
